@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.stripe.Stripe;
+
 import org.altbeacon.beacon.BeaconManager;
 import org.altbeacon.beacon.powersave.BackgroundPowerSaver;
 import org.json.JSONObject;
@@ -35,6 +38,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.apache.http.client.utils.Rfc3492Idn.base;
+
 public class dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     //POWER SAVER
@@ -45,12 +50,11 @@ public class dashboard extends AppCompatActivity
     private static final int REQUEST_COARSE_LOCATION_PERMISSIONS = 1;
     private RestTemplate restTemplate = ConnectionInformation.getInstance().getRestTemplate();
     private String url = ConnectionInformation.getInstance().getUrl();
-
+    public static final String PUBLISHABLE_KEY = "pk_test_zeyJXfY34INxorNSshxu83Q7";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_dashboard);
         //setContentView(R.layout.login);
         //power saver
@@ -137,9 +141,20 @@ public class dashboard extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if(id == R.id.action_logout){
+            Intent intent = new Intent(this, login.class);
+            this.startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
+
+
+    /*    switch (item.getItemId()) {
+            case R.id.home:
+                return false; //The fragment will take care of it
+            default:
+                break;
+        }*/
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
