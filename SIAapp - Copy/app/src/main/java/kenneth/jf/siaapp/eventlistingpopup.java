@@ -1,9 +1,8 @@
 package kenneth.jf.siaapp;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,86 +10,46 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.defaultValue;
-import static android.R.id.list;
 
 /**
  * Created by User on 16/10/2016.
  */
 
 public class eventlistingpopup extends Fragment{
-    View view;
-    ListView list;
 
-    List<Event> detailsList = new ArrayList<Event>();
-    ArrayList<String> listtest=new ArrayList <String>();
+
+
+
+
+
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.eventpopup, container,false);
 
-        int myInt = 0;
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            myInt = bundle.getInt("message");
+        ArrayAdapter<String> mArrayAdapter;
+
+
+        dashboard activity = (dashboard)getActivity();
+        Bundle savedData = activity.getSavedData();
+        Toast.makeText(this.getContext(),"VALUE GOTTEN: "+ savedData.getString("value"),Toast.LENGTH_LONG).show();
+        ListView detailsListView = (ListView) view.findViewById(R.id.ListViewCatalog);
+        ArrayList<String> details = new ArrayList<String>();
+
+        if(savedData != null){
+            String value = savedData.getString("value");
+            details.add(value);
         }
-        Toast.makeText(this.getContext(),"VALUE GOTTEN: "+ myInt,Toast.LENGTH_LONG).show();
+        mArrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, details);
 
+        detailsListView.setAdapter(mArrayAdapter);
 
-
-
-        initializeCart();
-        detailsList = SetAdapterList();
-
-       /*ArrayAdapter adapter=new ArrayAdapter(this.getContext(),detailsList);
-
-       list.setAdapter(adapter);*/
         return view;
     }
-    private void initializeCart()
-    {
-        ListView cart =(ListView) view.findViewById(R.id.ListViewCatalog);
-    }
-    private List<Event> SetAdapterList()
-    {
-        // TODO Auto-generated method stub
-
-        Event details;
-
-        List<Event> detailsList = new ArrayList<Event>();
-
-        try{
-            Intent newintent = getActivity().getIntent();
-            final String itemTitle = newintent.getStringExtra("title");
-            final String itemDesc = newintent.getStringExtra("desc");
-            final double itemPrice = newintent.getDoubleExtra("price", 0.0);
-            String totprice=String.valueOf(itemPrice);
-//      ArrayList <String> itemnames=new ArrayList<String>();
-            listtest.add(itemTitle);
-            Log.e("listtest",listtest+"");
-            final int imagehandler=newintent.getIntExtra("image", 0);
-            Log.e("image handler",imagehandler+"");
-            for(int i = 0; i< listtest.size(); i++)
-            {
-                details = new Event(itemTitle,itemDesc,itemPrice);
-                detailsList.add(details);
-            }
 
 
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        return detailsList;
-    }
-
-
-    //update List
-    public void updateList(String title, String desc, double price){
-        Event event = new Event(title, desc, price);
-        detailsList.add(event);
-    }
 }

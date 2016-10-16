@@ -1,11 +1,8 @@
 package kenneth.jf.siaapp;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.ListFragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -20,16 +17,21 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
 
-import static android.R.id.message;
-
 /**
  * Created by User on 16/10/2016.
  */
 
 public class eventlisting extends Fragment {
-    public ViewPager viewPager;
+    View myView;
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        myView = inflater.inflate(R.layout.event,container,false);
 
-    private OnFragmentInteractionListener mListener;
+        return myView;
+    }
+
+    public ViewPager viewPager;
 
     private ActionBar actionBar;
     private String[] tabs = { "Tab1", "Tab2" };
@@ -50,55 +52,38 @@ public class eventlisting extends Fragment {
         // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
 
-        ListView mListView = (ListView)getActivity().findViewById(R.id.databaselist);
+        ListView mListView = (ListView) getActivity().findViewById(R.id.databaselist);
 
-        mArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        mArrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, values);
 
         mListView.setAdapter(mArrayAdapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override public void onItemClick(AdapterView<?> adapterView, View view, int position, long arg3)
-            {
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long arg3) {
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.contentFrame, new eventlistingpopup()).commit();
-                String index = (String)adapterView.getItemAtPosition(position);
+                String index = (String) adapterView.getItemAtPosition(position);
 
 
-                String userContent = (String)adapterView.getItemAtPosition(position);
+                String userContent = (String) adapterView.getItemAtPosition(position);
                 int size = adapterView.getCount();
 
-                if (mListener != null) {
-                    mListener.onFragmentInteraction(userContent, size);
-                }
-                Toast.makeText(getActivity(),"HELLO, THE POSITION : " + position + " IS SELECTED...", Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putString("value", userContent); //any string to be sent
+                dashboard activity = (dashboard) getActivity();
+                activity.saveData(1, bundle);
+
+
+                Toast.makeText(getActivity(), "HELLO, THE POSITION : " + position + " IS SELECTED...", Toast.LENGTH_SHORT).show();
             }
         });
-
-    }
-
-    public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(String userContent, int size);
     }
 
 
 
 
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement OnFragmentInteractionListener");
-        }
-    }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
 }

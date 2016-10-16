@@ -188,6 +188,7 @@ public class dashboard extends AppCompatActivity
         }else if (id == R.id.eventlisting) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new eventlisting()).commit();
             Toast.makeText(this, "Event Listing", Toast.LENGTH_LONG).show();
+
         }else if (id == R.id.ticketing) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeFrag()).commit();
             Toast.makeText(this, "Ticketing", Toast.LENGTH_LONG).show();
@@ -340,9 +341,20 @@ public class dashboard extends AppCompatActivity
 
     }
 
+    Bundle result = null;
 
+    public void saveData(int id, Bundle data) {
+        // based on the id you'll know which fragment is trying to save data(see below)
+        // the Bundle will hold the data
+        result = new Bundle(data);
 
+    }
 
+    public Bundle getSavedData() {
+        // here you'll save the data previously retrieved from the fragments and
+        // return it in a Bundle
+        return result;
+    }
 
 
 
