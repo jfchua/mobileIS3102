@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_b983c465e30ff4adc4d4f7f16c640dcdd1873a0c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="3dee4ce5844d39d843d503fb8fe04e51e5bfffac">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.4.0_46535082afe647314aca8124ba0bb7cb96590c10\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Android Studio SDK\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_a8a2167a140d5eaa27f371e9848349ed4dbe17b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-rest-template\1.0.1.RELEASE\e132d929bd181941f79b0d63edafb8a86ae6fd33\spring-android-rest-template-1.0.1.RELEASE.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e132d929bd181941f79b0d63edafb8a86ae6fd33">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-rest-template-1.0.1.RELEASE_257859b52b35a01d1ea5cf7917df6ba1ce7c2172\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-6.1.0_48848271bf5268fbbfa65b2a94070c814250f542\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_baa3fcd72ceeca3377f0196a312a51a2d7842a7c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="743f5bb661218dbf53195fefe312179572fdde91">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_858c356655b0a755863c6aada5656813fe327d05\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="954697ee6ea7bdd596babf4f70e8b7a17ca7649e">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.4.0_2f2fcbbce4b8540830e8d41d3ef58eeb013928ad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4f8f1878a98fcf52a1cf26b476a195c7028e4e5d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_b04b547cdd2acda49b21e11178f9582fa312fc92\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ad16e0b9972a4c532580ed3137f9fa0b8f961551\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="658166e5955896d51f793bbad654efbec8a4bffb">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_c8086735d2a9dd69cc2f8050451bc88488522310\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_66029d3e25d7e78f65296b029d874e38ce53590e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.2.4_313aff129984a0a45e086871ec03bfcc02e7284e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.1_8c364df280905db8a356ce16c7f701c3127f056e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.3.2\559b70ac8a0d5cad611da4223137a920147201ba\jackson-core-2.3.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.3.2_00fd29a0b185be765d25ea0748f240b00113e631\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="618485fef3ebe12127f7622abbc9b5b39057b5c2">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.4.0_351745af74f3091031f597b6a9bbd2f3a8b899ee\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_abf3ae91f1df66fc1cca282a0db7219d018807ba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_9bc7cf6dc8c0c51b9faaa76ecc7744fe73d4a1f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient-android\4.3.5.1\eecbb0b998e77629862a13d957d552b3be58fc4e\httpclient-android-4.3.5.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\httpclient-android-4.3.5.1_40273ad5fe665969f4b848b12d6822148f0e23a0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\org.altbeacon\android-beacon-library\2.3.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="73124f508f8d4d974217d0ee760fef46c8a20f61">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\org.altbeacon-android-beacon-library-2.3.5_051c50faaf7f8d9661358a53543debbf4f00ca49\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.stripe\stripe-android\1.0.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0179adfd2118b1b314a3aec33ee0d472c6f8d5a7">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.stripe-stripe-android-1.0.5_43b1b0641397d3f1b030f2491b7beed6e296e76f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.3.0\f5e853a20b60758922453d56f9ae1e64af5cb3da\jackson-annotations-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.3.0_866e0e18c4d836bda82abcae510008a2acdad510\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_114183bb6dcfd7b422e6af3fce8d0ae13480ea60\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.3.2\c75edc740a6d8cb1cef6fa82fa594e0bce561916\jackson-databind-2.3.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c75edc740a6d8cb1cef6fa82fa594e0bce561916">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-databind-2.3.2_45c82fea7b3231f12fe16f10285f6a9fce38fcb2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_6c26b43eb40b3be7bb232207fe8cc2e26e03e72c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.stripe\stripe-java\2.6.0\caac132a3134dab96f3f4d1c38a47160521899c1\stripe-java-2.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="caac132a3134dab96f3f4d1c38a47160521899c1">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\stripe-java-2.6.0_62ef2054aa668c53f5009d5177f4b4e18157cac2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_c4f8c5d6c334777f1132a4fea1d451792e81bf6e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_f38c90cc39b11083c06b717f62516650b04cea26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_bec08189de53b8f504c05a4078e76ffc56b4a94c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_dc91700ac17848b6bf739e8e226a6f8e608c630f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-core\1.0.1.RELEASE\e68f0e8e4b636ee30c4de58953be38d9b72a5e3b\spring-android-core-1.0.1.RELEASE.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-core-1.0.1.RELEASE_007846cf79b365fe92fe8330f346848b9452efed\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5e04c0b3683ca45b343284d93e5594b5f9044551">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.4.0_af3d7fd52f6d5b40620f1c10811f44bd815344b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8a36d229011e75f0caef408e1adf0d3fd4d94e02">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.4.0_26d15acc93cd6bcaa98ead4836ae2b627b3ee05c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e454c414a069241ee08444d187f2dd3a702596b5">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.4.0_8e2cf4c80b5243de364db151a1d01f9fa1ef5f06\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_01c93382a32d022c858d37a2515c97d3e50971db\classes.dex" />
+    </item>
+
+</items>

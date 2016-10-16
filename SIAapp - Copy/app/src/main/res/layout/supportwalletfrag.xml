@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" xmlns:wallet="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Padding1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Padding2"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Payment Here"/>
+
+    <fragment
+        android:name="com.google.android.gms.wallet.fragment.WalletFragment"
+        android:id="@+id/wallet_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        wallet:environment="test"
+        wallet:fragmentMode="buyButton" />
+
+
+
+
+
+</LinearLayout>

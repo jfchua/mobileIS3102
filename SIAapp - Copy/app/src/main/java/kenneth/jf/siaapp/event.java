@@ -1,54 +1,24 @@
 package kenneth.jf.siaapp;
 
-import android.app.Fragment;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.graphics.drawable.Drawable;
 
 /**
- * Created by User on 13/10/2016.
+ * Created by User on 16/10/2016.
  */
 
-public class event extends Fragment{
-    View myView;
+public class Event
+{
+    public String title;
+    //public Drawable productImage;
+    public String description;
+    public double price;
+    public boolean selected;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        myView = inflater.inflate(R.layout.event,container,false);
-        ListView listview;
-        String[] foody;
-        listview = (ListView) myView.findViewById(R.id.listView);
-        // Array holding our data
-        foody = new String[]{"kenneth", "sucks", "chocolate", "ice-cream", "banana", "apple"};
-        //adapter which will convert each data item into view item.
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.list_view_row, R.id.listText, foody);
-        //place each view-item inside listview by setting adapter for our listview
-        listview.setAdapter(adapter);
-        listview.setOnItemClickListener(new ListClickHandler());
-        return myView;
+    public Event(String title, String description,
+                   double price) {
+        this.title = title;
+        //this.productImage = productImage;
+        this.description = description;
+        this.price = price;
     }
-    public class ListClickHandler implements AdapterView.OnItemClickListener {
-
-        @Override
-        public void onItemClick(AdapterView<?> adapter, View view, int position, long arg3) {
-            // TODO Auto-generated method stub
-            TextView listText = (TextView) view.findViewById(R.id.listText);
-            String text = listText.getText().toString();
-            // create intent to start another activity
-            Intent intent = new Intent(getActivity(), eventpopup.class);
-            // add the selected text item to our intent.
-            intent.putExtra("selected-item", text);
-            startActivity(intent);
-
-        }
-    }
-};
+}

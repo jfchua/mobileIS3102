@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="stripe-android-1.0.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.stripe/stripe-android/1.0.5/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.stripe/stripe-android/1.0.5/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.stripe/stripe-android/1.0.5/aadfad805239ef0f99cfedca241dd5c4e494c4b7/stripe-android-1.0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -38,7 +38,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.apache.http.client.utils.Rfc3492Idn.base;
+
+
 
 public class dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,14 +64,14 @@ public class dashboard extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Nothing here yet!!!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -184,6 +185,15 @@ public class dashboard extends AppCompatActivity
         }else if (id == R.id.home) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeFrag()).commit();
             Toast.makeText(this, "Back Home", Toast.LENGTH_LONG).show();
+        }else if (id == R.id.eventlisting) {
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new eventlisting()).commit();
+            Toast.makeText(this, "Event Listing", Toast.LENGTH_LONG).show();
+        }else if (id == R.id.ticketing) {
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeFrag()).commit();
+            Toast.makeText(this, "Ticketing", Toast.LENGTH_LONG).show();
+        }else if (id == R.id.payment) {
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new SupportWalletFragment()).commit();
+            Toast.makeText(this, "Payment", Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

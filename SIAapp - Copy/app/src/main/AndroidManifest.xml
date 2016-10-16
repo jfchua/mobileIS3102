@@ -53,6 +53,7 @@
         <activity android:name=".signup" />
         <activity android:name=".MonitoringActivity"/>
         <activity android:name=".RangingActivity"/>
+        <activity android:name=".event" />
 
     </application>
 
