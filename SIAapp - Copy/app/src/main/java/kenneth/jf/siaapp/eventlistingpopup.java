@@ -9,10 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.defaultValue;
 import static android.R.id.list;
 
 /**
@@ -29,6 +31,17 @@ public class eventlistingpopup extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.eventpopup, container,false);
+
+        int myInt = 0;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            myInt = bundle.getInt("message");
+        }
+        Toast.makeText(this.getContext(),"VALUE GOTTEN: "+ myInt,Toast.LENGTH_LONG).show();
+
+
+
+
         initializeCart();
         detailsList = SetAdapterList();
 
@@ -53,7 +66,6 @@ public class eventlistingpopup extends Fragment{
             Intent newintent = getActivity().getIntent();
             final String itemTitle = newintent.getStringExtra("title");
             final String itemDesc = newintent.getStringExtra("desc");
-
             final double itemPrice = newintent.getDoubleExtra("price", 0.0);
             String totprice=String.valueOf(itemPrice);
 //      ArrayList <String> itemnames=new ArrayList<String>();
@@ -73,5 +85,12 @@ public class eventlistingpopup extends Fragment{
             e.printStackTrace();
         }
         return detailsList;
+    }
+
+
+    //update List
+    public void updateList(String title, String desc, double price){
+        Event event = new Event(title, desc, price);
+        detailsList.add(event);
     }
 }

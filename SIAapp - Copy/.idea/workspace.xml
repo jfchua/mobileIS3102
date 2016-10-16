@@ -31,30 +31,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="eventlisting.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="eventlisting.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/eventlisting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+            <state relative-caret-position="1376">
+              <caret line="100" column="25" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1932#2819#0" expanded="true" />
-                <element signature="e#2818#2819#0" expanded="true" />
+                <element signature="e#1801#2662#0" expanded="true" />
+                <element signature="e#2661#2662#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eventlistingpopup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/eventlistingpopup.java">
+      <file leaf-file-name="dashboard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/dashboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-494">
-              <caret line="36" column="34" selection-start-line="34" selection-start-column="7" selection-end-line="36" selection-end-column="34" />
+            <state relative-caret-position="896">
+              <caret line="345" column="0" selection-start-line="345" selection-start-column="0" selection-end-line="345" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#557#564#0" expanded="true" />
-                <element signature="e#613#621#0" expanded="true" />
-                <element signature="e#1335#1342#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eventlistingpopup.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/eventlistingpopup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1870">
+              <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#629#636#0" expanded="true" />
+                <element signature="e#685#693#0" expanded="true" />
+                <element signature="e#1658#1665#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,7 +88,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="264">
               <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
               <folding />
             </state>
@@ -1927,10 +1939,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/Event.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/EventAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_dashboard.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/dashboard.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/EventCartHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/eventlistingpopup.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/eventlisting.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/dashboard.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/eventlistingpopup.java" />
       </list>
     </option>
   </component>
@@ -2487,13 +2499,13 @@
         <state relative-caret-position="638">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#903#904#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#991#992#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#755#756#0" expanded="false" />
+            <element signature="e#797#798#0" expanded="false" />
+            <element signature="e#854#855#0" expanded="false" />
+            <element signature="e#903#904#0" expanded="false" />
+            <element signature="e#960#961#0" expanded="false" />
+            <element signature="e#991#992#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2539,13 +2551,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/eventlisting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1376">
+          <caret line="100" column="25" selection-start-line="100" selection-start-column="25" selection-end-line="100" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1801#2662#0" expanded="true" />
+            <element signature="e#2661#2662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/dashboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1606">
-          <caret line="73" column="13" selection-start-line="66" selection-start-column="8" selection-end-line="73" selection-end-column="13" />
+        <state relative-caret-position="896">
+          <caret line="345" column="0" selection-start-line="345" selection-start-column="0" selection-end-line="345" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/eventpopup.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2557,38 +2592,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/eventpopup.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/eventlistingpopup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-494">
-          <caret line="36" column="34" selection-start-line="34" selection-start-column="7" selection-end-line="36" selection-end-column="34" />
+        <state relative-caret-position="1870">
+          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#557#564#0" expanded="true" />
-            <element signature="e#613#621#0" expanded="true" />
-            <element signature="e#1335#1342#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/kenneth/jf/siaapp/eventlisting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1932#2819#0" expanded="true" />
-            <element signature="e#2818#2819#0" expanded="true" />
+            <element signature="e#629#636#0" expanded="true" />
+            <element signature="e#685#693#0" expanded="true" />
+            <element signature="e#1658#1665#0" expanded="true" />
           </folding>
         </state>
       </provider>
