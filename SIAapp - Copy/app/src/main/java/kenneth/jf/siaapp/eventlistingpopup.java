@@ -1,13 +1,18 @@
 package kenneth.jf.siaapp;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.reflect.Array;
@@ -19,11 +24,6 @@ import java.util.List;
  */
 
 public class eventlistingpopup extends Fragment{
-
-
-
-
-
 
     View view;
     @Override
@@ -50,6 +50,5 @@ public class eventlistingpopup extends Fragment{
 
         return view;
     }
-
 
 }

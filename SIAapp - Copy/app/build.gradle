@@ -36,12 +36,32 @@ dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.android.support:design:24.2.1'
+
+
+
     compile group: 'org.apache.httpcomponents' , name: 'httpclient-android' , version: '4.3.5.1'
     compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.3.2'
     testCompile 'junit:junit:4.12'
+
+    //beacon
     compile 'org.altbeacon:android-beacon-library:2.3.5+'
+
+
+    //stripe
     compile 'com.stripe:stripe-android:+'
+
+    //android wallet
     compile 'com.google.android.gms:play-services-wallet:9.4.0'
+
+    //theme
     compile 'com.jakewharton:butterknife:6.1.0'
+
+    //paypal
+    compile 'com.paypal.sdk:paypal-android-sdk:2.14.2'
+
+
+    //Looks like okhttp is a dependency for the Paypal SDK
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'com.squareup.okio:okio:1.8.0'
 }

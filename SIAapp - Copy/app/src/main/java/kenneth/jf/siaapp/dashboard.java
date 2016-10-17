@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.paypal.android.sdk.payments.PayPalService;
 import com.stripe.Stripe;
 
 import org.altbeacon.beacon.BeaconManager;
@@ -34,7 +35,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-
+import com.paypal.android.sdk.payments.PayPalConfiguration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +54,9 @@ public class dashboard extends AppCompatActivity
     private String url = ConnectionInformation.getInstance().getUrl();
     public static final String PUBLISHABLE_KEY = "pk_test_zeyJXfY34INxorNSshxu83Q7";
 
+
+    public static final int PAYPAL_REQUEST_CODE = 123;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,19 @@ public class dashboard extends AppCompatActivity
         //setContentView(R.layout.login);
         //power saver
         backgroundPowerSaver = new BackgroundPowerSaver(this);
+
+
+
+
+        //paypal
+
+        Intent intent = new Intent(this, PayPalService.class);
+
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+
+        startService(intent);
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -112,7 +129,12 @@ public class dashboard extends AppCompatActivity
 
     }
 
-
+    //Paypal Configuration Object
+    private static PayPalConfiguration config = new PayPalConfiguration()
+            // Start with mock environment.  When ready, switch to sandbox (ENVIRONMENT_SANDBOX)
+            // or live (ENVIRONMENT_PRODUCTION)
+            .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
+            .clientId(PayPalConfig.PAYPAL_CLIENT_ID);
 
 
     @Override
@@ -190,8 +212,8 @@ public class dashboard extends AppCompatActivity
             Toast.makeText(this, "Event Listing", Toast.LENGTH_LONG).show();
 
         }else if (id == R.id.ticketing) {
-            fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeFrag()).commit();
-            Toast.makeText(this, "Ticketing", Toast.LENGTH_LONG).show();
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new PayPalFrag()).commit();
+            Toast.makeText(this, "Payment with PayPal", Toast.LENGTH_LONG).show();
         }else if (id == R.id.payment) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new SupportWalletFragment()).commit();
             Toast.makeText(this, "Payment", Toast.LENGTH_LONG).show();
@@ -356,6 +378,12 @@ public class dashboard extends AppCompatActivity
         return result;
     }
 
+    //paypal
+    @Override
+    public void onDestroy() {
+        stopService(new Intent(this, PayPalService.class));
+        super.onDestroy();
+    }
 
 
 }

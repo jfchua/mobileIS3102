@@ -9,6 +9,15 @@ import android.graphics.drawable.Drawable;
 public class Event
 {
     public String title;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     //public Drawable productImage;
     public String description;
     public double price;
@@ -20,5 +29,13 @@ public class Event
         //this.productImage = productImage;
         this.description = description;
         this.price = price;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
