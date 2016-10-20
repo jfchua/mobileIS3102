@@ -16,7 +16,7 @@
 
     <string name="food_prompt">Choose Your Food!</string>
     <string name="drink_prompt">Choose Your Drinks!</string>
-
+    <string name="category">Choose your category type!</string>
     <string-array name="food_arrays">
         <item>Pasta</item>
         <item>Fried Rice</item>
@@ -25,11 +25,11 @@
     </string-array>
 
 
-    <string-array name="drink_arrays">
-        <item>Orange Juice</item>
-        <item>Wine</item>
-        <item>Coke</item>
-        <item>Plain Water</item>
+    <string-array name="event_array">
+        <item>Comments</item>
+        <item>Suggestions</item>
+        <item>Complaints</item>
+        <item>Recommendations</item>
     </string-array>
 
 

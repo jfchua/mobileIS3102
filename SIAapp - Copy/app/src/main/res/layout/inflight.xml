@@ -1,59 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_weight="10"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/orderTitle"
+            android:text="Feedback Page"
+            android:textSize="28dip"
+            android:textStyle="bold|italic"
+            android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.62"
-            android:id="@+id/orderTitle"
-            android:text="In Flight Ordering"
-            android:layout_gravity="center_horizontal"/>
-
+            android:layout_weight="0.5"
+            android:text="Type your feedback here"
+            android:textStyle="italic"
+            android:layout_gravity="top"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Seat Number"
-            android:ems="10"
-            android:id="@+id/seat" />
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:background="@drawable/feedback_input"
+            android:id="@+id/seat"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLength="2000"
+            android:maxLines="15"
+            android:minLines="7"
+            android:hint="Feedback"
+            android:layout_gravity="top"
+            />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="Choose your feedback type"
+            android:layout_weight="1"/>
         <Spinner
             android:id="@+id/spinner1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#a9a9a9"
-            android:entries="@array/food_arrays"
-            android:prompt="@string/food_prompt" />
-
-        <Spinner
-            android:id="@+id/spinner2"
-            android:background="#a9a9a9"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:entries="@array/drink_arrays"
-            android:prompt="@string/drink_prompt" />
-
-
-
-
+            android:layout_weight="0.5"
+            android:background="#fff"
+            android:layout_gravity="top"
+            android:entries="@array/event_array"
+            android:prompt="@string/category" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
             android:id="@+id/btnSubmit"
             android:text="Submit"/>
 

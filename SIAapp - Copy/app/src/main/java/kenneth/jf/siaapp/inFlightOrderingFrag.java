@@ -53,15 +53,15 @@ public class inFlightOrderingFrag extends Fragment {
     }
 
     public void addListenerOnSpinner2ItemSelection() {
-        spinner2 = (Spinner) myView.findViewById(R.id.spinner2);
-        spinner2.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+        //spinner2 = (Spinner) myView.findViewById(R.id.spinner2);
+        //spinner2.setOnItemSelectedListener(new CustomOnItemSelectedListener());
     }
 
     // get the selected dropdown list value
     public void addListenerOnButton() {
 
         spinner1 = (Spinner) myView.findViewById(R.id.spinner1);
-        spinner2 = (Spinner) myView.findViewById(R.id.spinner2);
+        //spinner2 = (Spinner) myView.findViewById(R.id.spinner2);
         btnSubmit = (Button) myView.findViewById(R.id.btnSubmit);
         seat = (EditText) myView.findViewById(R.id.seat);
 
@@ -72,11 +72,10 @@ public class inFlightOrderingFrag extends Fragment {
             public void onClick(View v) {
                 seat1 = seat.getText().toString();
                 spin1 = String.valueOf(spinner1.getSelectedItem());
-                spin2 = String.valueOf(spinner2.getSelectedItem());
+//                spin2 = String.valueOf(spinner2.getSelectedItem());
                 Toast.makeText(getActivity(),
                         "Ordered food: " +
-                                "\nSpinner 1 : "+ String.valueOf(spinner1.getSelectedItem()) +
-                                "\nSpinner 2 : "+ String.valueOf(spinner2.getSelectedItem())
+                                "\nSpinner 1 : "+ String.valueOf(spinner1.getSelectedItem())
                         +"\nSeat: " + seat.getText(),
                         Toast.LENGTH_SHORT).show();
 

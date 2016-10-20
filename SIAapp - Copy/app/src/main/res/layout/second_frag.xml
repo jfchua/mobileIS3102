@@ -9,14 +9,19 @@
         android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="10"
         android:orientation="vertical">
         <TextView android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="1"
-         android:text="Beacon tracker"   />
+         android:text="Beacon tracker" android:textStyle="bold|italic" android:textSize="28dip"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:text="List of beacons found:         "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
             android:id="@+id/beaconID"/>
 
     </LinearLayout>

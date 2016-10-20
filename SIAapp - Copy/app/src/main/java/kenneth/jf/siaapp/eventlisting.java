@@ -94,19 +94,19 @@ public class eventlisting extends Fragment {
 
         //Array list of countries
         ArrayList<Event> EventList = new ArrayList<Event>();
-        Event Event = new Event("AFG","$1.00",false);
+        Event Event = new Event("Jay Chou Concert","$111.00",false);
         EventList.add(Event);
-        Event = new Event("ALB","$1.00",true);
+        Event = new Event("Comex IT Fair","$11.00",true);
         EventList.add(Event);
-        Event = new Event("DZA","$1.00",false);
+        Event = new Event("Meet and Greet","$23.30",false);
         EventList.add(Event);
-        Event = new Event("ASM","$1.00",true);
+        Event = new Event("Great Singapore Sale","$132.10",true);
         EventList.add(Event);
-        Event = new Event("AND","$1.00",true);
+        Event = new Event("DBS Annual Meeting","$123.45",true);
         EventList.add(Event);
-        Event = new Event("AGO","$1.00",false);
+        Event = new Event("JJ LIN Concert","$123.00",false);
         EventList.add(Event);
-        Event = new Event("AIA","$1.00",false);
+        Event = new Event("Job Fair","$11.00",false);
         EventList.add(Event);
 
         //create an ArrayAdaptar from the String Array
