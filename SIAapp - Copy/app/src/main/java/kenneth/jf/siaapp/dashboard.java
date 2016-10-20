@@ -214,6 +214,7 @@ public class dashboard extends AppCompatActivity
         }else if (id == R.id.ticketing) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new PayPalFrag()).commit();
             Toast.makeText(this, "Payment with PayPal", Toast.LENGTH_LONG).show();
+
         }else if (id == R.id.payment) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new SupportWalletFragment()).commit();
             Toast.makeText(this, "Payment", Toast.LENGTH_LONG).show();

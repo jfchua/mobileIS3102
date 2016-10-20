@@ -31,4 +31,10 @@
         <item>Coke</item>
         <item>Plain Water</item>
     </string-array>
+
+
+    <!--Events-->
+     <string name="some_text">
+     Some North American Countries!
+ </string>
 </resources>
