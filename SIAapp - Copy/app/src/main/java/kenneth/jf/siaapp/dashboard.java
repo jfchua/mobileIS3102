@@ -39,7 +39,7 @@ import com.paypal.android.sdk.payments.PayPalConfiguration;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import static kenneth.jf.siaapp.R.attr.homeLayout;
 
 
 public class dashboard extends AppCompatActivity
@@ -53,6 +53,7 @@ public class dashboard extends AppCompatActivity
     private RestTemplate restTemplate = ConnectionInformation.getInstance().getRestTemplate();
     private String url = ConnectionInformation.getInstance().getUrl();
     public static final String PUBLISHABLE_KEY = "pk_test_zeyJXfY34INxorNSshxu83Q7";
+    FragmentManager fragmentManager = getFragmentManager();
 
 
     public static final int PAYPAL_REQUEST_CODE = 123;
@@ -61,6 +62,11 @@ public class dashboard extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeLayout()).commit();
+        Toast.makeText(this, "HOME", Toast.LENGTH_LONG).show();
+
+
         //setContentView(R.layout.login);
         //power saver
         backgroundPowerSaver = new BackgroundPowerSaver(this);
@@ -185,7 +191,6 @@ public class dashboard extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        FragmentManager fragmentManager = getFragmentManager();
 
         if (id == R.id.first_frag) {
             //this is for the profile setting
@@ -205,7 +210,7 @@ public class dashboard extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new inFlightOrderingFrag()).commit();
             Toast.makeText(this, "Going Into In Flight Ordering Menu", Toast.LENGTH_LONG).show();
         }else if (id == R.id.home) {
-            fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeFrag()).commit();
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeLayout()).commit();
             Toast.makeText(this, "Back Home", Toast.LENGTH_LONG).show();
         }else if (id == R.id.eventlisting) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new eventlisting()).commit();
