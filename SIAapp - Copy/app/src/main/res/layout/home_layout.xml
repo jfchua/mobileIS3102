@@ -98,11 +98,11 @@ android:layout_height="match_parent" android:backgroundTint="#fff">
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Most Handsome Guy"/>
+                                android:text="Halloween Event"/>
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/xhdpi"
+                                android:background="@drawable/halloween"
                                 />
                         </LinearLayout>
                     </LinearLayout>
@@ -159,12 +159,11 @@ android:layout_height="match_parent" android:backgroundTint="#fff">
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Asia Pacific"/>
+                                android:text="Envato Event"/>
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="130dip"
-                                android:background="@drawable/asiabanner"
-                                />
+                                android:background="@drawable/envato"/>
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -178,11 +177,11 @@ android:layout_height="match_parent" android:backgroundTint="#fff">
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Comex IT SHOW"/>
+                                android:text="Travel Promo"/>
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/comex"/>
+                                android:background="@drawable/travel"/>
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
@@ -196,12 +195,11 @@ android:layout_height="match_parent" android:backgroundTint="#fff">
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Most Handsome Guy"/>
+                                android:text="Pokemon Day"/>
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/xhdpi"
-                                />
+                                android:background="@drawable/pokemonday"/>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
