@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -27,11 +28,18 @@ public class QRcode extends Fragment implements View.OnClickListener {
 
     private String LOG_TAG = "GenerateQRCode";
     View myView;
+  TextView qrInput;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         myView = inflater.inflate(R.layout.first_frag,container,false);
+       
+        qrInput = (TextView) myView.findViewById(R.id.qrInput);
+        dashboard qr = (dashboard)getActivity();
+        String qrcode = qr.getResult();
+        qrInput.setText(qrcode);
         Button button1 = (Button) myView.findViewById(R.id.button1);
         button1.setOnClickListener(this);
         return myView;
@@ -41,7 +49,8 @@ public class QRcode extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.button1:
-                EditText qrInput = (EditText) myView.findViewById(R.id.qrInput);
+
+
                 String qrInputText = qrInput.getText().toString();
                 Log.v(LOG_TAG, qrInputText);
 

@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.paypal.android.sdk.payments.PayPalService;
@@ -46,7 +47,7 @@ public class dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     //POWER SAVER
     private BackgroundPowerSaver backgroundPowerSaver;
-
+    private static String QRresult;
     private static final String TAG = "SIA APP";
     private static final int PERMISSION_REQUEST_COARSE_LOCATION =1 ;
     private static final int REQUEST_COARSE_LOCATION_PERMISSIONS = 1;
@@ -56,16 +57,29 @@ public class dashboard extends AppCompatActivity
     FragmentManager fragmentManager = getFragmentManager();
 
 
+
+
     public static final int PAYPAL_REQUEST_CODE = 123;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("key");
+            System.out.println("Value: " + value);
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new QRcode()).commit();
+            setResult(value);
 
-        fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeLayout()).commit();
-        Toast.makeText(this, "HOME", Toast.LENGTH_LONG).show();
 
+            //The key argument here must match that used in the other activity
+        }else {
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeLayout()).commit();
+            Toast.makeText(this, "HOME", Toast.LENGTH_LONG).show();
+        }
 
         //setContentView(R.layout.login);
         //power saver
@@ -133,6 +147,13 @@ public class dashboard extends AppCompatActivity
         new HttpRequestTask2().execute();
         Log.d("TAG","After dashboard task");
 
+    }
+
+    private void setResult(String value){
+        QRresult = value;
+    }
+    public String getResult(){
+        return QRresult;
     }
 
     //Paypal Configuration Object
