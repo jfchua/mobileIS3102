@@ -1,5 +1,6 @@
 package kenneth.jf.siaapp;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -27,6 +28,7 @@ import org.altbeacon.beacon.MonitorNotifier;
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -35,13 +37,10 @@ import java.util.Collection;
  * Created by User on 5/10/2016.
  */
 // for beacon connection using bluetooth Manager
-public class secondFrag extends Fragment {
+public class secondFrag extends Fragment implements BeaconConsumer{
     private static final String TAG = "SECOND FRAGMENT FOR MONITORINH";
 
-
     /*Creating a beacon*/
-
-
 
     View myView;
     // ------------------------------------------------------------------------
@@ -150,9 +149,36 @@ public class secondFrag extends Fragment {
                 final int minor = (scanRecord[startByte + 22] & 0xff) * 0x100 + (scanRecord[startByte + 23] & 0xff);
 
 
+
                 //Record in front
                 Log.i(LOG_TAG,"UUID: " +uuid + "\\nmajor: " +major +"\\nminor" +minor);
-                setText("UUID: " +uuid + "\\nmajor: " +major +"\\nminor" +minor);
+
+                if(String.valueOf(minor).equals("36128")){
+                      setText1("Welcome to IFMS");
+                      Toast.makeText(getActivity(), "WELCOME TO IFMS!!!", Toast.LENGTH_LONG).show();
+                }
+                else if(String.valueOf(minor).equals("1219")){
+                    setText1("There is a whopping 50% off for the second top purchased at H&M!");
+                    Toast.makeText(getActivity(), "There is a whopping 50% off for the second top purchased at H&M!", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    setText1("Hurry Up! The 1 for 1 drink at Starbucks ends at 4pm!");
+                    Toast.makeText(getActivity(), "Hurry Up! The 1 for 1 drink at Starbucks ends at 4pm!", Toast.LENGTH_LONG).show();
+                }
+
+                ArrayList<String> list = new ArrayList<>();
+          /*      if(String.valueOf(minor).equals("36128")){
+                    list.add(count+". "+ "UUID: " +uuid + "\\nmajor: " +major +"\\nminor" +minor);
+                }
+                if(String.valueOf(minor).equals("1219")){
+                    setText1("There is a whopping 50% off for the second top purchased at H&M!");
+                    Toast.makeText(getActivity(), "There is a whopping 50% off for the second top purchased at H&M!", Toast.LENGTH_LONG).show();
+                }
+                if(String.valueOf(minor).equals("13419")){
+                    setText1("Hurry Up! The 1 for 1 drink at Starbucks ends at 4pm!");
+                    Toast.makeText(getActivity(), "Hurry Up! The 1 for 1 drink at Starbucks ends at 4pm!", Toast.LENGTH_LONG).show();
+                }*/
+                setText("Nearest Beacon Found: " +uuid + "\\nmajor: " +major +"\\nminor" +minor);
                 //Toast.makeText(getActivity(), "Your Beacon Is Found!", Toast.LENGTH_LONG).show();
 
             }
@@ -179,6 +205,12 @@ public class secondFrag extends Fragment {
         TextView textView = (TextView) myView.findViewById(R.id.beaconID);
         textView.setText(text);
     }
+    public void setText1(String text){
+        TextView textView = (TextView) myView.findViewById(R.id.message);
+        textView.setText(text);
+    }
+
+
 
 
 //redundant from here onwards
@@ -226,4 +258,122 @@ public class secondFrag extends Fragment {
     public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
         return false;
     }*/
+
+
+
+    String textResult = "Scanning started";
+    @Override
+    public void onResume() {
+        super.onResume();
+        mBeaconManager = BeaconManager.getInstanceForApplication(this.getActivity());
+        // Detect the main Eddystone-UID frame:
+        mBeaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout("m:0-3=4c000215,i:4-19,i:20-21,i:22-23,p:24-24"));
+        mBeaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout("x,s:0-1=feaa,m:2-2=20,d:3-3,d:4-5,d:6-7,d:8-11,d:12-15"));
+        mBeaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout("s:0-1=feaa,m:2-2=00,p:3-3:-41,i:4-13,i:14-19"));
+        mBeaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout("s:0-1=feaa,m:2-2=10,p:3-3:-41,i:4-20v"));
+        mBeaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout("s:0-1=fed8,m:2-2=00,p:3-3:-41,i:4-21v"));
+        mBeaconManager.bind(this);
+    }
+
+    private static final String BEACON_UUID = "5C3F2F21-20D1-11E6";
+    private static final int BEACON_MAJOR = 1000;
+
+
+    @Override
+    public void onBeaconServiceConnect() {
+        final TextView text = (TextView) myView.findViewById(R.id.messageRange);
+        text.setText("on Beacon Service Connect");
+        mBeaconManager.setRangeNotifier(new RangeNotifier() {
+            @Override
+            public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
+
+                try {
+                    if (beacons.size() > 0) {
+                        Log.i("ranging", "The first beacon I see is about " + beacons.iterator().next().getDistance() + " meters away.");
+                        //textResult = "The first beacon I see is about "+beacons.iterator().next().getDistance()+" meters away.";
+                        //text.setText("THE DISTANCE IS: " + beacons.iterator().next().getDistance());
+                        setText3("The message came from about " + beacons.iterator().next().getDistance() + " meters away.");
+                    }
+
+                    if (beacons.iterator().next().getDistance() < 1) {
+                        setText("Very Near!");
+                        new AlertDialog.Builder(getApplicationContext())
+                                .setTitle("Your luggage is near!")
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+                    }
+                    if (beacons.iterator().next().getDistance() > 1) {
+                        setText2("Some Distance Away!");
+                    }
+                /*for (Beacon beacon: beacons) {
+                    Log.i(TAG, "This beacon has identifiers:"+beacon.getId1()+", "+beacon.getId2()+", "+beacon.getId3());
+                    TextView text2 = (TextView) myView.findViewById(R.id.thirdResult);
+                    text2.setText("This beacon has identifiers:"+beacon.getId1()+", "+beacon.getId2()+", "+beacon.getId3());
+                }*/
+                }
+                catch(Exception e){
+                    // Log.d("TAG",e.getMessage());
+                }
+
+            }
+
+
+        });
+
+        try {
+            mBeaconManager.startRangingBeaconsInRegion(new Region("myRangingUniqueId", null, null, null));
+        } catch (RemoteException e) {    }
+        setText2(textResult);
+    }
+
+
+    @Override
+    public Context getApplicationContext() {
+        return getActivity().getApplicationContext();
+    }
+
+    @Override
+    public void unbindService(ServiceConnection serviceConnection) {
+        getActivity().unbindService(serviceConnection);
+    }
+
+    @Override
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
+        return getActivity().bindService(intent, serviceConnection, i);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+
+    @Override
+    public void onDestroy() {
+        mBeaconManager.unbind(this);
+        super.onDestroy();
+    }
+
+    public void setText3(String msg){
+        final String str = msg;
+        getActivity().runOnUiThread(new Runnable(){
+            @Override
+            public void run(){
+                TextView result = (TextView) myView.findViewById(R.id.messageRange);
+                result.setText(str);
+            }
+        });
+
+    }
+    public void setText2(String msg){
+        final String str = msg;
+        getActivity().runOnUiThread(new Runnable(){
+            @Override
+            public void run(){
+                TextView result = (TextView) myView.findViewById(R.id.messageInfo);
+                result.setText(str);
+            }
+        });
+
+    }
 }

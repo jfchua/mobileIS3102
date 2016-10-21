@@ -42,10 +42,10 @@ public class firstFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         myView = inflater.inflate(R.layout.first_frag,container,false);
-        addListenerOnButton();
+        //addListenerOnButton();
         return myView;
     }
-    public void addListenerOnButton() {
+ /*   public void addListenerOnButton() {
 
         btnSubmitRequest = (Button) myView.findViewById(R.id.btnSubmitRequest);
         seat = (EditText) myView.findViewById(R.id.seatInput);
@@ -111,7 +111,7 @@ public class firstFrag extends Fragment {
         }
 
     }
-
+*/
 
 
 

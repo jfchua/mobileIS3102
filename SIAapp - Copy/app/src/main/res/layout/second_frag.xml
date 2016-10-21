@@ -2,29 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <!-- FOR BEACONS-->
     <LinearLayout
         android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="120dp">
+
         <TextView android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="1"
          android:text="Beacon tracker" android:textStyle="bold|italic" android:textSize="28dip"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="List of beacons found:         "/>
+            android:id="@+id/beaconID"
+         />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8"
-            android:id="@+id/beaconID"/>
-
+            android:layout_weight="0.5"
+            android:text="Message: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:id="@+id/message"
+            android:textSize="30sp"
+            android:background="@drawable/lightblue_bg"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/messageRange"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/messageInfo"/>
     </LinearLayout>
-
-
 </LinearLayout>

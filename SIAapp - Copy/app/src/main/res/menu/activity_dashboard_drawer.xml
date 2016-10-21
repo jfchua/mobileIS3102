@@ -21,7 +21,7 @@
         <item
             android:id="@+id/first_frag"
             android:icon="@drawable/chat"
-            android:title="Request" />
+            android:title="QR CODE" />
         <item
             android:id="@+id/inFlightOrderingFrag"
             android:icon="@drawable/chat"
