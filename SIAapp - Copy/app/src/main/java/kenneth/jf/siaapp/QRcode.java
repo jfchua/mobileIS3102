@@ -35,7 +35,7 @@ public class QRcode extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         myView = inflater.inflate(R.layout.first_frag,container,false);
-       
+
         qrInput = (TextView) myView.findViewById(R.id.qrInput);
         dashboard qr = (dashboard)getActivity();
         String qrcode = qr.getResult();

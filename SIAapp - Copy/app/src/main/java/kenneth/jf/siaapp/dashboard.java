@@ -215,7 +215,7 @@ public class dashboard extends AppCompatActivity
 
         if (id == R.id.first_frag) {
             //this is for the profile setting
-            fragmentManager.beginTransaction().replace(R.id.contentFrame, new QRcode()).commit();
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new test()).commit();
             Toast.makeText(this, "Going into making requests", Toast.LENGTH_LONG).show();
             // Handle the camera action
             //can do report feedback using the camera
