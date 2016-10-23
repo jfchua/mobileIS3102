@@ -17,6 +17,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,13 +34,17 @@ import org.json.JSONObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.FormHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.password;
 import static kenneth.jf.siaapp.R.attr.homeLayout;
 
 
@@ -121,6 +126,7 @@ public class dashboard extends AppCompatActivity
 
         verifyBluetooth();
 
+
         /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Android M Permission check
             if (this.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -144,7 +150,7 @@ public class dashboard extends AppCompatActivity
 
         doDiscovery();
         Log.d("TAG","Before dashboard task");
-        new HttpRequestTask2().execute();
+      //  new HttpRequestTask2().execute();
         Log.d("TAG","After dashboard task");
 
     }
@@ -192,6 +198,8 @@ public class dashboard extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }else if(id == R.id.action_logout){
+            new doLogout().execute();
+
             Intent intent = new Intent(this, login.class);
             this.startActivity(intent);
         }
@@ -410,6 +418,43 @@ public class dashboard extends AppCompatActivity
     public void onDestroy() {
         stopService(new Intent(this, PayPalService.class));
         super.onDestroy();
+    }
+
+    private class doLogout extends AsyncTask<Void, Void, String> {
+
+        protected String doInBackground(Void... params) {
+            Log.d("TAG", "DO IN BACKGROUND");
+            try {
+
+                HttpEntity<String> request2 = new HttpEntity<String>(ConnectionInformation.getInstance().getHeaders());
+                String url2 = "https://" + url + "/logout";
+                Log.d("TAGTOSTRING ",request2.toString());
+                ResponseEntity<Object> responseEntity = restTemplate.exchange(url2, HttpMethod.POST, request2, Object.class);
+                Log.d("TAGGGGGGGGREQUEST", responseEntity.getStatusCode().toString());
+                if ( responseEntity.getStatusCode().equals(HttpStatus.OK)){
+                    ConnectionInformation.getInstance().setIsAuthenticated(false);
+                    Log.d("TAG","Logged out inside async");
+                }
+
+            } catch (Exception e) {
+                Log.e("TAG", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+
+        protected void onPostExecute(String greeting) {
+
+            Log.d("TAG", "DO POST EXECUTE");
+            if ( ConnectionInformation.getInstance().getAuthenticated()){
+                Log.d("TAG", "SERVER LOG OUT DID NOT WORK");
+            }
+            else{
+                Log.d("TAG", "LOG OUT ON SERVER OK");
+            }
+        }
+
     }
 
 

@@ -1,5 +1,6 @@
 package kenneth.jf.siaapp;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -12,10 +13,18 @@ public class ConnectionInformation {
     protected String url;
     protected RestTemplate restTemplate;
     protected boolean isAuthenticated;
+    protected HttpHeaders headers = new HttpHeaders();
+    public void setHeaders(HttpHeaders h){
+        this.headers = h;
+    }
+    public HttpHeaders getHeaders(){
+        return this.headers;
+    }
     public void setIsAuthenticated(boolean t){
         this.isAuthenticated = t;
     }
     public boolean getAuthenticated(){
+
         return isAuthenticated;
     }
     public String getData() {
