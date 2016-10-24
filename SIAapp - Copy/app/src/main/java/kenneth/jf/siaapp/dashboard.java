@@ -73,15 +73,21 @@ public class dashboard extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
+        if (extras != null && getIntent().hasExtra("key")) {
             String value = extras.getString("key");
             System.out.println("Value: " + value);
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new QRcode()).commit();
             setResult(value);
 
-
+        }else if(extras !=null && getIntent().hasExtra("key2")){
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new EventShowInfo()).commit();
             //The key argument here must match that used in the other activity
         }else {
+
+            Intent intent = getIntent();
+            if(intent.getStringExtra("value") == "value")
+
+
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeLayout()).commit();
             Toast.makeText(this, "HOME", Toast.LENGTH_LONG).show();
         }
