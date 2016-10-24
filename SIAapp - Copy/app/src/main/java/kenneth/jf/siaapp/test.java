@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -21,6 +21,8 @@ import android.widget.TextView;
 import android.widget.TableRow.LayoutParams;
 
 import com.google.zxing.BarcodeFormat;
+
+import org.jetbrains.annotations.Nullable;
 
 import static android.content.Context.WINDOW_SERVICE;
 

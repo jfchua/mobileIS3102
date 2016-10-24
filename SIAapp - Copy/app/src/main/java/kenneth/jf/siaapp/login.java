@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -32,6 +33,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +45,8 @@ import butterknife.InjectView;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
+import static android.R.attr.handle;
 
 public class login extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -79,7 +83,8 @@ public class login extends AppCompatActivity {
             RestTemplate restTemplate2 = new RestTemplate(requestFactory);
             //Set basic connection information
             ConnectionInformation.getInstance().setRestTemplate(restTemplate2);
-            ConnectionInformation.getInstance().setUrl("192.168.0.103:8443");
+            //SET ADDRESS OF THE SERVER
+            ConnectionInformation.getInstance().setUrl("192.168.0.100:8443");
             restTemplate = restTemplate2;
         }
         catch ( Exception e){
@@ -143,7 +148,7 @@ public class login extends AppCompatActivity {
         Log.d("TEST123","Before runnning task");
         // TODO: Implement your own authentication logic here.
         new HttpRequestTask().execute();
-
+        // = new Handler();
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -151,15 +156,17 @@ public class login extends AppCompatActivity {
                         if ( ConnectionInformation.getInstance().getAuthenticated() ){
                             Log.d("TAG","After authenticated");
                             onLoginSuccess();
+
                         }
                         else{
                             Log.d("TAG","After NOT authenticated");
                             onLoginFailed();
+
                         }
                         // onLoginFailed();
                         progressDialog.dismiss();
                     }
-                }, 2000);
+                }, 1700);
     }
 
 
@@ -258,11 +265,32 @@ public class login extends AppCompatActivity {
                 // Log.d("TAG",request2.getBody());
                 ResponseEntity<Object> responseEntity = restTemplate.exchange(url2, HttpMethod.GET, request2, Object.class);
                 Log.d("TAGGGGGGGGREQUEST", responseEntity.toString());
-
+                Log.d("TAGGGGGGGGREQUEST", responseEntity.getStatusCode().toString());
+                String stoken = "";
+                String xtoken = "";
                 if ( responseEntity.getStatusCode().equals(HttpStatus.OK)){
-                    String[] cookieInfo = responseEntity.getHeaders().toString().split(";");
-                    String xtoken = cookieInfo[0].substring(24);
-                    Log.d("TAGRESPONSE", xtoken);
+                    Log.d("TAGRESPONSE", responseEntity.getHeaders().get("Set-Cookie").toString());
+                    for ( String s : responseEntity.getHeaders().get("Set-Cookie")){
+                        Log.d("STRT IS",s);
+                        if ( !s.contains("XSRF-TOKEN=;") && !s.contains("JSESSION")){
+                            String[] tokenInfo = s.split(";");
+                             xtoken = tokenInfo[0].substring(11);
+                            Log.d("TOKEN IS",xtoken);
+                        }
+                        else if ( s.contains("JSESSIONID") ){
+                            String[] stokenInfo = s.split(";");
+                             stoken = stokenInfo[0].substring(11);
+                            Log.d("SESSION IS",stoken);
+                        }
+                    }
+                    HttpHeaders tempH = new HttpHeaders();
+                    List<MediaType> tempL = new ArrayList<MediaType>();
+                    list.add(MediaType.APPLICATION_JSON);
+                    tempH.setAccept(tempL);
+                    tempH.add("Cookie", "XSRF-TOKEN=" + xtoken + "; JSESSIONID=" + stoken);
+                    tempH.add("X-XSRF-TOKEN", xtoken);
+                    Log.d("HEADER", tempH.toString());
+                    ConnectionInformation.getInstance().setHeaders(tempH);
                     ConnectionInformation.getInstance().setIsAuthenticated(true);
                 }
                 else{
