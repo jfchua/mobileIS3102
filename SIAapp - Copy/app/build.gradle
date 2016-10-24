@@ -69,4 +69,5 @@ dependencies {
 
     //qr code
     compile 'com.google.zxing:core:3.2.1'
+    compile 'org.jetbrains:annotations-java5:15.0'
 }
