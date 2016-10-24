@@ -13,13 +13,16 @@ public class Event implements Parcelable
     String code = null;
     String name = null;
     String price = null;
+    int index = 0;
     boolean selected = false;
 
     public Event(String name, String price, boolean selected) {
         super();
+
         this.name = name;
         this.price = price;
         this.selected = selected;
+       // this.index = index;
     }
 
     protected Event(Parcel in) {
@@ -27,6 +30,7 @@ public class Event implements Parcelable
         name = in.readString();
         price = in.readString();
         selected = in.readByte() != 0;
+      //  index = in.readInt();
     }
 
     @Override
@@ -34,6 +38,7 @@ public class Event implements Parcelable
         dest.writeString(code);
         dest.writeString(name);
         dest.writeString(price);
+     //   dest.writeInt(index);
         dest.writeByte((byte) (selected ? 1 : 0));
     }
 
@@ -79,5 +84,10 @@ public class Event implements Parcelable
     }
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public Integer getIndex(){
+        index += 1;
+        return index;
     }
 }

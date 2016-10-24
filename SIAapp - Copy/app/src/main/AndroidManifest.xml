@@ -58,6 +58,7 @@
         <activity android:name=".RangingActivity"></activity>
         <activity android:name=".MonitoringActivity"></activity>
         <activity android:name=".signup"></activity>
+        <activity android:name=".PayPalActivity"></activity>
 
         <service android:name="com.paypal.android.sdk.payments.PayPalService"  android:enabled="true"/>
 

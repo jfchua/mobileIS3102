@@ -1,5 +1,6 @@
 package kenneth.jf.siaapp;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,14 +48,18 @@ public class EventAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final ViewItem item;
+       /* RecyclerView.ViewHolder vi = new RecyclerView.ViewHolder();
+        vi.getItemId() = position;
+        convertView.setTag();
+*/
 
-     /*   if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.item,
+     /*  if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.event,
                     null);
             item = new ViewItem();
 
-            item.productImageView = (ImageView) convertView
-                    .findViewById(R.id.ImageViewItem);
+            *//*item.productImageView = (ImageView) convertView
+                    .findViewById(R.id.ImageViewItem);*//*
 
             item.productTitle = (TextView) convertView.findViewById(R.id.TextViewItem);
 

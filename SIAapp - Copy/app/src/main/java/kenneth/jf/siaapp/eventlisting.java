@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -22,12 +23,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.paypal.android.sdk.fw.v;
+
 /**
  * Created by User on 16/10/2016.
  */
 
 public class eventlisting extends Fragment {
     View myView;
+    FragmentManager fragmentManager = getFragmentManager();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -143,6 +147,7 @@ public class eventlisting extends Fragment {
         private class ViewHolder {
             TextView code;
             CheckBox name;
+            Button button;
         }
 
         @Override
@@ -158,6 +163,7 @@ public class eventlisting extends Fragment {
                 holder = new ViewHolder();
                 holder.code = (TextView) convertView.findViewById(R.id.code);
                 holder.name = (CheckBox) convertView.findViewById(R.id.checkBox1);
+                holder.button = (Button) convertView.findViewById(R.id.viewEventInfo);
                 convertView.setTag(holder);
 
                 holder.name.setOnClickListener( new View.OnClickListener() {
@@ -169,8 +175,27 @@ public class eventlisting extends Fragment {
                                         " is " + cb.isChecked(),
                                 Toast.LENGTH_LONG).show();
                         Event.setSelected(cb.isChecked());
+
+
+                        //retrieve Event Details From Backend
+
                     }
                 });
+                holder.button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Button cb = (Button) view ;
+                        Event event = (Event)cb.getTag();
+                        int position = getPosition(event);
+                        //send details using bundle to the next fragment
+                        Intent intent = new Intent(getActivity(),  PayPalActivity.class);
+
+                        startActivity(intent);
+
+
+                    }
+                });
+
             }
             else {
                 holder = (ViewHolder) convertView.getTag();
