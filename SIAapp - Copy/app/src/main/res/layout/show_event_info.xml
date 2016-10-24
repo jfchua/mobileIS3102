@@ -7,14 +7,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="60dp">
+        android:paddingTop="60dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="EVENT INFO"/>
+            android:text="EVENT INFO"
+            android:textSize="20sp"
+            android:paddingBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:text="Category"/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:entries="@array/category_arrays"
+                android:prompt="@string/category_prompt"
+                android:popupBackground="#d7d7d7"></Spinner>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Tickets: "/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:entries="@array/number_arrays"
+                android:prompt="@string/number_prompt"
+                android:popupBackground="#d7d7d7"></Spinner>
+
+        </LinearLayout>
 
 
+        <ListView android:id="@+id/listViewTix" android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
-
 </LinearLayout>

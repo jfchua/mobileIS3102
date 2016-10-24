@@ -4,10 +4,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by User on 16/10/2016.
- */
-
 public class Event implements Parcelable
 {
     String code = null;

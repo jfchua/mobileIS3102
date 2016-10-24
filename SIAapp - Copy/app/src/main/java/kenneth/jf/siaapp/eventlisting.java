@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -20,6 +21,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,6 +39,7 @@ import static com.paypal.android.sdk.fw.v;
 
 public class eventlisting extends Fragment {
     View myView;
+    boolean removeEvent = true;
     ArrayList<Event> EventList = new ArrayList<Event>();
     ArrayList<Event> EventList2 = new ArrayList<Event>();
     ArrayList<Event> EventList3 = new ArrayList<Event>();
@@ -49,13 +57,14 @@ public class eventlisting extends Fragment {
         removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String str=new String();
-                for(int i=0;i<EventList2.size();i++) {
-                    str=str.concat(EventList2.get(i).getName());
 
+                for(int i=0;i<EventList.size();i++) {
+                    if(EventList.get(i).isSelected()){
+                        EventList.remove(i);
+                    }
                 }
-                Toast.makeText(getActivity(), "EVENT LISTING 2: " + str, Toast.LENGTH_SHORT).show();
-                dataAdapter = new MyCustomAdapter(getActivity(), R.layout.event_info, EventList2);
+
+                dataAdapter = new MyCustomAdapter(getActivity(), R.layout.event_info, EventList);
                 ListView listView = (ListView) myView.findViewById(R.id.listView1);
                 // Assign adapter to ListView
                 listView.setAdapter(dataAdapter);
@@ -68,7 +77,20 @@ public class eventlisting extends Fragment {
 
             @Override
             public void onClick(View v) {
-
+                int count=0;
+                double price = 0.00;
+                for(int i=0;i<EventList.size();i++){
+                    if(EventList.get(i).isSelected())
+                        count+=1;
+                }
+                if (count == 0){
+                    Toast.makeText(getActivity(), "NO EVENTS SELECTED!!!!!!!!!!", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    for(int i=0;i<EventList.size();i++){
+                        price += Double.valueOf(EventList.get(i).getPrice());
+                    }
+                }
                 Intent intent = new Intent(getActivity(), dashboard.class);
                 // intent.putParcelableArrayListExtra();
 
@@ -161,7 +183,7 @@ public class eventlisting extends Fragment {
         Event = new Event("Job Fair","$11.00",false);
         EventList2.add(Event);
     }
-    
+
     public void remove(int i){
         EventList2.remove(i);
     }
@@ -238,7 +260,8 @@ public class eventlisting extends Fragment {
                                         " is " + cb.isChecked(),
                                 Toast.LENGTH_LONG).show();
                         Event.setSelected(cb.isChecked());
-                        EventList2.remove(position);
+
+                      //  EventList2.remove(position);
                         Toast.makeText(getActivity(), "Position: " + position, Toast.LENGTH_LONG);
                         //retrieve Event Details From Backend
 
@@ -252,7 +275,7 @@ public class eventlisting extends Fragment {
                         int position = getPosition(event);
                         //send details using bundle to the next fragment
                         Intent intent = new Intent(getActivity(),  dashboard.class);
-                        intent.putExtra("key2", "eventPayment");
+                        intent.putExtra("key2", "eventInfo");
                         startActivity(intent);
 
 
@@ -282,7 +305,7 @@ public class eventlisting extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Log.v("Indexremoved: ", "fkkkk");
+
                 StringBuffer responseText = new StringBuffer();
                 responseText.append("The following were selected...\n");
                 //this list shows the events that are selected
@@ -300,6 +323,45 @@ public class eventlisting extends Fragment {
             }
         });
 
+    }
+
+    private String url = ConnectionInformation.getInstance().getUrl();
+    private RestTemplate restTemplate = ConnectionInformation.getInstance().getRestTemplate();
+
+    private class getEvent extends AsyncTask<Void, Void, String> {
+
+        protected String doInBackground(Void... params) {
+            Log.d("TAG", "DO IN BACKGROUND");
+            try {
+
+                HttpEntity<String> request2 = new HttpEntity<String>(ConnectionInformation.getInstance().getHeaders());
+                String url2 = "https://" + url + "/logout";
+                Log.d("TAGTOSTRING ",request2.toString());
+                ResponseEntity<Object> responseEntity = restTemplate.exchange(url2, HttpMethod.POST, request2, Object.class);
+                Log.d("TAGGGGGGGGREQUEST", responseEntity.getStatusCode().toString());
+                if ( responseEntity.getStatusCode().equals(HttpStatus.OK)){
+                    ConnectionInformation.getInstance().setIsAuthenticated(false);
+                    Log.d("TAG","Logged out inside async");
+                }
+
+            } catch (Exception e) {
+                Log.e("TAG", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+
+        protected void onPostExecute(String greeting) {
+
+            Log.d("TAG", "DO POST EXECUTE");
+            if ( ConnectionInformation.getInstance().getAuthenticated()){
+                Log.d("TAG", "SERVER LOG OUT DID NOT WORK");
+            }
+            else{
+                Log.d("TAG", "LOG OUT ON SERVER OK");
+            }
+        }
 
     }
 }

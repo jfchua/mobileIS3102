@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="6114d0524e534841c45c226caa921a1ae4eefea0">
+        sha1="57474ca0fe0101e74d15de5a60a48578a38b60e7">
         <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_858c356655b0a755863c6aada5656813fe327d05\classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="6bbb502cba02284004e5e888af473790dd81c823">
+        sha1="4cb50ec9c09c185baef0333db04837faa1379a12">
         <dex dex="D:\IFMSapplication\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_c8086735d2a9dd69cc2f8050451bc88488522310\classes.dex" />
     </item>
     <item
