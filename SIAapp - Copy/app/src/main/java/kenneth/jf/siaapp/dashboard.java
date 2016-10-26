@@ -42,6 +42,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.client.RestTemplate;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static android.R.attr.password;
@@ -150,7 +151,7 @@ public class dashboard extends AppCompatActivity
 
         doDiscovery();
         Log.d("TAG","Before dashboard task");
-      //  new HttpRequestTask2().execute();
+        new HttpRequestTask2().execute();
         Log.d("TAG","After dashboard task");
 
     }
@@ -362,27 +363,19 @@ public class dashboard extends AppCompatActivity
         protected String doInBackground(Void... params) {
             Log.d("TAG", "DO IN BACKGROUND");
             try {
-                JSONObject requestJ2 = new JSONObject();
-                HttpHeaders headers2 = new HttpHeaders();
-                List<MediaType> list = new ArrayList<MediaType>();
-                list.add(MediaType.APPLICATION_JSON);
-                headers2.setAccept(list);
-                // MappingJackson2HttpMessageConverter jsonHttpMessageConverter2 = new MappingJackson2HttpMessageConverter();
-                HttpEntity<String> request2 = new HttpEntity<String>(headers2);
-                String url2 = "https://" + url + "/user/notifications/findAllNotifications";
+
+                HttpEntity<String> request2 = new HttpEntity<String>(ConnectionInformation.getInstance().getHeaders());
+                Log.d("TAGGGGGGGGREQUEST", ConnectionInformation.getInstance().getHeaders().getAccept().toString());
+                String url2 = "https://" + url + "/tixViewAllEvents";
+
                 Log.d("TAG", "BEFORE VERIFYING" + restTemplate.getMessageConverters().toString());
                 Log.d("TAG",request2.toString());
                 // Log.d("TAG",request2.getBody());
-                ResponseEntity<Message[]> responseEntity = restTemplate.exchange(url2, HttpMethod.GET, request2, Message[].class);
-           //   Message[] responseEntity = restTemplate.getForObject(url2,Message[].class);
-                Log.d("TAGGGGGGGGREQUEST", responseEntity.getStatusCode().toString());
-                for ( Message m : responseEntity.getBody()){
-                 Log.d("TAGGGGGGGGREQUEST", m.getSenderName());
+                ResponseEntity<EventListObject[]> responseEntity = restTemplate.exchange(url2, HttpMethod.GET, request2, EventListObject[].class);
+
+                for ( EventListObject m : responseEntity.getBody()){
+                 Log.d("loopforeventlistobject", m.toString());
                 }
-             //   Log.d("TAGGGGGGGGREQUEST", responseEntity.getBody();
-               // JSONObject userJson = new JSONObject(responseEntity.getBody().toString());
-             //   JSONObject userJson = new JSONObject(responseEntity);
-             //   Log.d("TAGGGGGGGGREQUEST", userJson.toString());
 
             } catch (Exception e) {
                 Log.e("TAG", e.getMessage(), e);

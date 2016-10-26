@@ -31,10 +31,10 @@ public class inFlightOrderingFrag extends Fragment {
     View myView;
     private Spinner spinner1, spinner2;
     private Button btnSubmit;
-    private EditText seat;
-    private String spin1;
+    private EditText feedbackBox;
+    private String feedbackCategory;
     private String spin2;
-    private String seat1;
+    private String feedback;
 
     @Nullable
     @Override
@@ -63,20 +63,20 @@ public class inFlightOrderingFrag extends Fragment {
         spinner1 = (Spinner) myView.findViewById(R.id.spinner1);
         //spinner2 = (Spinner) myView.findViewById(R.id.spinner2);
         btnSubmit = (Button) myView.findViewById(R.id.btnSubmit);
-        seat = (EditText) myView.findViewById(R.id.seat);
+        feedbackBox = (EditText) myView.findViewById(R.id.seat);
 
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                seat1 = seat.getText().toString();
-                spin1 = String.valueOf(spinner1.getSelectedItem());
+                feedback = feedbackBox.getText().toString();
+                feedbackCategory = String.valueOf(spinner1.getSelectedItem());
 //                spin2 = String.valueOf(spinner2.getSelectedItem());
                 Toast.makeText(getActivity(),
-                        "Ordered food: " +
+                        "Feedback Category: " +
                                 "\nSpinner 1 : "+ String.valueOf(spinner1.getSelectedItem())
-                        +"\nSeat: " + seat.getText(),
+                        +"\nFeedback: " + feedbackBox.getText(),
                         Toast.LENGTH_SHORT).show();
 
                 new HttpRequestTask().execute();
@@ -92,30 +92,11 @@ public class inFlightOrderingFrag extends Fragment {
         protected String doInBackground(Void... params) {
             Log.d("TAG","DO IN BACKGROUND");
             try {
-                //GET
-               /* final String url = "http://192.168.43.153/SIA.php";
-                RestTemplate restTemplate = new RestTemplate();
-                Log.d("TAG","CREATED NEW REST TEMPLATE");
-                final MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
-                mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON, MediaType.APPLICATION_OCTET_STREAM));
-                restTemplate.getMessageConverters().add(mappingJackson2HttpMessageConverter);
-                Log.d("TAG","DO GET MESSAGE CONVERTERS");
-            //    String greet = restTemplate.getForObject(url, String.class);
-             //   restTemplate.get
-                ResponseEntity<Object> responseEntity = restTemplate.getForEntity(url, Object.class);
-                Log.d("TAG", "GOT SOMETHING");
-                Object object = responseEntity.getBody();
-                MediaType contentType = responseEntity.getHeaders().getContentType();
-                HttpStatus statusCode = responseEntity.getStatusCode();
-                Log.d("TAG", "RESPONSEENTTIY: " + contentType + " " + statusCode +"ITEM IS : " + object.toString() );
-                return object.toString();*/
-
                 //POST
                 JSONObject requestJ = new JSONObject();
-                requestJ.put("food", spin1);
+                feedback = feedbackCategory + " : " + feedback;
                 requestJ.put("drink", spin2);
-                requestJ.put("seat", seat1);
-                // String data = "{\"name\": \"JFK\", \"passport\": \"W12345\"}";
+                requestJ.put("feedback", feedback);
                 Log.d("TAG",requestJ.toString());
                 HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_JSON);

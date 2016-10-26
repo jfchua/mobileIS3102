@@ -30,39 +30,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_226bb59fbd213213d7f4660d95cab57f091ba1cc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.2.1\2287494d4f5f9f3a9a2bb6980e3f32053721b315\core-3.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
         <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\core-3.2.1_2cf1670319868e0c1e3fa2e6759e4a56d252cbfd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_83d06753bdc1d7d769b98c1cfbca73302696bddd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient-android\4.3.5.1\eecbb0b998e77629862a13d957d552b3be58fc4e\httpclient-android-4.3.5.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\httpclient-android-4.3.5.1_b450ebd0b07a95be6860bf4746794d627dcbd6fd\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,12 +57,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="553d876fa9a6d14c6c5c435b085f0ce0f1fb06a3">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_094ffc5ba342167da26ecfb87aa4a78831e8f8db\classes.dex" />
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_83d06753bdc1d7d769b98c1cfbca73302696bddd\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -102,30 +75,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="8a36d229011e75f0caef408e1adf0d3fd4d94e02">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.4.0_e1d72ff98c70c754eedbc50e59778a3d5e1c4024\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="e454c414a069241ee08444d187f2dd3a702596b5">
         <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.4.0_014fa5f1858e6ff1a7ea96e0ba9b31f335b4b62a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\com.stripe\stripe-java\2.6.0\caac132a3134dab96f3f4d1c38a47160521899c1\stripe-java-2.6.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="caac132a3134dab96f3f4d1c38a47160521899c1">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\stripe-java-2.6.0_6db7d190a4d6445567cb5eb2a4cd226d48c87031\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -165,15 +120,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-rest-template\1.0.1.RELEASE\e132d929bd181941f79b0d63edafb8a86ae6fd33\spring-android-rest-template-1.0.1.RELEASE.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e132d929bd181941f79b0d63edafb8a86ae6fd33">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-rest-template-1.0.1.RELEASE_52acd860d1ab2cd983b259e4e6ea8a4578802b13\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.stripe\stripe-android\1.0.5\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -192,12 +138,138 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\io.card\android-sdk\5.3.4\jars\classes.jar"
+        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.3.2\559b70ac8a0d5cad611da4223137a920147201ba\jackson-core-2.3.2.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="28bc7007cc5fb935b0737a42f05b8286936228b0">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.card-android-sdk-5.3.4_cf45289de3262374b31d179fc08c85d5ee82505c\classes.dex" />
+        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.3.2_8a6b219e3f8efb57c36c046d642c111b7c8de0fa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations-java5\15.0\7011b4551a8451906759b05814c58b9eb829ea9b\annotations-java5-15.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7011b4551a8451906759b05814c58b9eb829ea9b">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\annotations-java5-15.0_abbf8299a645324a2f5e3bf8af3c6c7ea37eb727\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-6.1.0_5e332975632cca03703c943c3985b4331d777896\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.paypal.sdk\paypal-android-sdk\2.14.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="da47b5635353ca55aabc9e1ad6aaaa5626fedcb4">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.paypal.sdk-paypal-android-sdk-2.14.2_c88fd9b58f2f9c012e8588cf2900cb0bda5afeb0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="3dee4ce5844d39d843d503fb8fe04e51e5bfffac">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.4.0_bb621edaf840e6eddd8f80796f4a10d3b4a42b54\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4f26d834f4725f0f2e8a69d578aea0b0a9c8b0e4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9005c983a96f37b92d2c3b941ace074eb9cd03eb">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_853d86320fabfe951c768988abc2ce00dba7f86e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.3.0\f5e853a20b60758922453d56f9ae1e64af5cb3da\jackson-annotations-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.3.0_a8757816b9c8765e295ae5d4426a1140ebf125a8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-core\1.0.1.RELEASE\e68f0e8e4b636ee30c4de58953be38d9b72a5e3b\spring-android-core-1.0.1.RELEASE.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-core-1.0.1.RELEASE_5ff6b65be76d2a81c387299f2acb853e75b3c72d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_226bb59fbd213213d7f4660d95cab57f091ba1cc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient-android\4.3.5.1\eecbb0b998e77629862a13d957d552b3be58fc4e\httpclient-android-4.3.5.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\httpclient-android-4.3.5.1_b450ebd0b07a95be6860bf4746794d627dcbd6fd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f121de92ad23d4d34069546e41a061c98c97e239">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_094ffc5ba342167da26ecfb87aa4a78831e8f8db\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8a36d229011e75f0caef408e1adf0d3fd4d94e02">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.4.0_e1d72ff98c70c754eedbc50e59778a3d5e1c4024\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\com.stripe\stripe-java\2.6.0\caac132a3134dab96f3f4d1c38a47160521899c1\stripe-java-2.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="caac132a3134dab96f3f4d1c38a47160521899c1">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\stripe-java-2.6.0_6db7d190a4d6445567cb5eb2a4cd226d48c87031\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-rest-template\1.0.1.RELEASE\e132d929bd181941f79b0d63edafb8a86ae6fd33\spring-android-rest-template-1.0.1.RELEASE.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e132d929bd181941f79b0d63edafb8a86ae6fd33">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-rest-template-1.0.1.RELEASE_52acd860d1ab2cd983b259e4e6ea8a4578802b13\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -210,21 +282,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.3.2\559b70ac8a0d5cad611da4223137a920147201ba\jackson-core-2.3.2.jar"
+        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\io.card\android-sdk\5.3.4\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="559b70ac8a0d5cad611da4223137a920147201ba">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.3.2_8a6b219e3f8efb57c36c046d642c111b7c8de0fa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-6.1.0_5e332975632cca03703c943c3985b4331d777896\classes.dex" />
+        sha1="28bc7007cc5fb935b0737a42f05b8286936228b0">
+        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.card-android-sdk-5.3.4_cf45289de3262374b31d179fc08c85d5ee82505c\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -243,15 +306,6 @@
         revision="24.0.3"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_f2a1b58c9920c797e475e6d88b45ee021dd1d8e9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.paypal.sdk\paypal-android-sdk\2.14.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="da47b5635353ca55aabc9e1ad6aaaa5626fedcb4">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.paypal.sdk-paypal-android-sdk-2.14.2_c88fd9b58f2f9c012e8588cf2900cb0bda5afeb0\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -279,51 +333,6 @@
         revision="24.0.3"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
         <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_d9341d62edb8b736fabbe846ceab38ca0b02777b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="3dee4ce5844d39d843d503fb8fe04e51e5bfffac">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.4.0_bb621edaf840e6eddd8f80796f4a10d3b4a42b54\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4f26d834f4725f0f2e8a69d578aea0b0a9c8b0e4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="b4a0c405ba4ca5f3d4d79881762f5f65e622a4b4">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_853d86320fabfe951c768988abc2ce00dba7f86e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\org.springframework.android\spring-android-core\1.0.1.RELEASE\e68f0e8e4b636ee30c4de58953be38d9b72a5e3b\spring-android-core-1.0.1.RELEASE.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e68f0e8e4b636ee30c4de58953be38d9b72a5e3b">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\spring-android-core-1.0.1.RELEASE_5ff6b65be76d2a81c387299f2acb853e75b3c72d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Kenneth\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.3.0\f5e853a20b60758922453d56f9ae1e64af5cb3da\jackson-annotations-2.3.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="f5e853a20b60758922453d56f9ae1e64af5cb3da">
-        <dex dex="C:\Users\Kenneth\Desktop\ANDROIDAPPALMOSTFINAL\mobileIS3102\SIAapp - Copy\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.3.0_a8757816b9c8765e295ae5d4426a1140ebf125a8\classes.dex" />
     </item>
     <item
         is-multidex="true"
