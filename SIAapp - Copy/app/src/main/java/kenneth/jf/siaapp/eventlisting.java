@@ -194,6 +194,7 @@ public class eventlisting extends Fragment {
         //Array list of events
         addStaticEvents();
         addStaticEvents2();
+        new getEvent().execute();
 
 
         //create an ArrayAdaptar from the String Array
@@ -335,13 +336,13 @@ public class eventlisting extends Fragment {
             try {
 
                 HttpEntity<String> request2 = new HttpEntity<String>(ConnectionInformation.getInstance().getHeaders());
-                String url2 = "https://" + url + "/logout";
-                Log.d("TAGTOSTRING ",request2.toString());
-                ResponseEntity<Object> responseEntity = restTemplate.exchange(url2, HttpMethod.POST, request2, Object.class);
-                Log.d("TAGGGGGGGGREQUEST", responseEntity.getStatusCode().toString());
+                String url2 = "https://" + url + "/tixViewAllEvents";
+                Log.d("TAG TO STRING ",request2.toString());
+                ResponseEntity<Event[]> responseEntity = restTemplate.exchange(url2, HttpMethod.POST, request2, Event[].class);
+                Log.d("EVENT REQUEST", responseEntity.getStatusCode().toString());
                 if ( responseEntity.getStatusCode().equals(HttpStatus.OK)){
                     ConnectionInformation.getInstance().setIsAuthenticated(false);
-                    Log.d("TAG","Logged out inside async");
+                    Log.d("TAG","Get Events inside async");
                 }
 
             } catch (Exception e) {
