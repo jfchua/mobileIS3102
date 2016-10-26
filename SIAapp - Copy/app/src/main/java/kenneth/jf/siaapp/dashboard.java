@@ -45,6 +45,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static android.R.attr.name;
 import static android.R.attr.password;
 import static kenneth.jf.siaapp.R.attr.homeLayout;
 
@@ -151,7 +152,7 @@ public class dashboard extends AppCompatActivity
 
         doDiscovery();
         Log.d("TAG","Before dashboard task");
-        new HttpRequestTask2().execute();
+        new viewAnEvent().execute();
         Log.d("TAG","After dashboard task");
 
     }
@@ -358,7 +359,7 @@ public class dashboard extends AppCompatActivity
 
         }
     }
-    private class HttpRequestTask2 extends AsyncTask<Void, Void, String> {
+    private class viewAllEvents extends AsyncTask<Void, Void, String> {
 
         protected String doInBackground(Void... params) {
             Log.d("TAG", "DO IN BACKGROUND");
@@ -376,6 +377,42 @@ public class dashboard extends AppCompatActivity
                 for ( EventListObject m : responseEntity.getBody()){
                  Log.d("loopforeventlistobject", m.toString());
                 }
+
+            } catch (Exception e) {
+                Log.e("TAG", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+
+        protected void onPostExecute(String greeting) {
+            Log.d("TAG", "DO POST EXECUTE");
+        }
+
+    }
+
+    private class viewAnEvent extends AsyncTask<Void, Void, String> {
+
+        protected String doInBackground(Void... params) {
+            Log.d("TAG", "DO IN BACKGROUND");
+            try {
+                JSONObject request = new JSONObject();
+                //Event ID
+                request.put("eventId", 1);
+                HttpEntity<String> request2 = new HttpEntity<String>(request.toString(),ConnectionInformation.getInstance().getHeaders());
+                Log.d("TAGGGGGGGGREQUEST", ConnectionInformation.getInstance().getHeaders().getAccept().toString());
+                String url2 = "https://" + url + "/tixViewEvent";
+
+                Log.d("TAG", "BEFORE VERIFYING" + restTemplate.getMessageConverters().toString());
+                Log.d("TAG",request2.toString());
+                // Log.d("TAG",request2.getBody());
+                ResponseEntity<eventDetailsObject> responseEntity = restTemplate.exchange(url2, HttpMethod.POST, request2, eventDetailsObject.class);
+
+
+                Log.d("loopforeventlistobject", responseEntity.getBody().getTitle());
+                Log.d("loopforeventlistobject", responseEntity.getBody().getAddress().toString());
+
 
             } catch (Exception e) {
                 Log.e("TAG", e.getMessage(), e);
