@@ -28,9 +28,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.FormHttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
+import java.nio.charset.Charset;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.sql.Connection;
@@ -84,7 +86,11 @@ public class login extends AppCompatActivity {
             //Set basic connection information
             ConnectionInformation.getInstance().setRestTemplate(restTemplate2);
             //SET ADDRESS OF THE SERVER
+<<<<<<< HEAD
             ConnectionInformation.getInstance().setUrl("192.168.43.244:8443");
+=======
+            ConnectionInformation.getInstance().setUrl("192.168.0.102:8443");
+>>>>>>> 3132092385969fc56a775384ac06d4b395b7e7ed
             restTemplate = restTemplate2;
         }
         catch ( Exception e){
@@ -255,6 +261,8 @@ public class login extends AppCompatActivity {
                 String url2 = "https://" + baseIpAddress + "/user/loginVerify";
                 restTemplate.getMessageConverters().add(new FormHttpMessageConverter());
                 restTemplate.getMessageConverters().add(jsonHttpMessageConverter2);
+                restTemplate.getMessageConverters()
+                        .add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
                 Log.d("TAG", "BEFORE VERIFYING" + url2);
                 // ResponseEntity<Object> responseEntity = restTemplate.getForEntity(url, Object.class);
                 //  Log.d("TAG", "GOT SOMETHING");
@@ -285,7 +293,7 @@ public class login extends AppCompatActivity {
                     }
                     HttpHeaders tempH = new HttpHeaders();
                     List<MediaType> tempL = new ArrayList<MediaType>();
-                    list.add(MediaType.APPLICATION_JSON);
+                    tempL.add(MediaType.APPLICATION_JSON);
                     tempH.setAccept(tempL);
                     tempH.add("Cookie", "XSRF-TOKEN=" + xtoken + "; JSESSIONID=" + stoken);
                     tempH.add("X-XSRF-TOKEN", xtoken);
