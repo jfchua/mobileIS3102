@@ -86,11 +86,10 @@ public class login extends AppCompatActivity {
             //Set basic connection information
             ConnectionInformation.getInstance().setRestTemplate(restTemplate2);
             //SET ADDRESS OF THE SERVER
-<<<<<<< HEAD
-            ConnectionInformation.getInstance().setUrl("192.168.43.244:8443");
-=======
-            ConnectionInformation.getInstance().setUrl("192.168.0.102:8443");
->>>>>>> 3132092385969fc56a775384ac06d4b395b7e7ed
+
+            ConnectionInformation.getInstance().setUrl("192.168.1.17:8443");
+           // ConnectionInformation.getInstance().setUrl("192.168.1.1:8443");
+
             restTemplate = restTemplate2;
         }
         catch ( Exception e){

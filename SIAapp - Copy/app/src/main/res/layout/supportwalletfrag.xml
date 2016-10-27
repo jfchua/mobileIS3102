@@ -27,8 +27,4 @@
         wallet:environment="test"
         wallet:fragmentMode="buyButton" />
 
-
-
-
-
 </LinearLayout>
