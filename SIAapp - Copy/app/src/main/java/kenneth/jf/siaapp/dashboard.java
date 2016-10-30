@@ -22,9 +22,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.Result;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.stripe.Stripe;
 
@@ -40,10 +42,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
+
 import com.paypal.android.sdk.payments.PayPalConfiguration;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 import static android.R.attr.name;
 import static android.R.attr.password;
@@ -56,19 +62,15 @@ public class dashboard extends AppCompatActivity
     private BackgroundPowerSaver backgroundPowerSaver;
     private static String QRresult;
     private static final String TAG = "SIA APP";
-    private static final int PERMISSION_REQUEST_COARSE_LOCATION =1 ;
+    private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
     private static final int REQUEST_COARSE_LOCATION_PERMISSIONS = 1;
     private RestTemplate restTemplate = ConnectionInformation.getInstance().getRestTemplate();
     private String url = ConnectionInformation.getInstance().getUrl();
     public static final String PUBLISHABLE_KEY = "pk_test_zeyJXfY34INxorNSshxu83Q7";
     FragmentManager fragmentManager = getFragmentManager();
-
-
-
+    String value = ""; // for event Id
 
     public static final int PAYPAL_REQUEST_CODE = 123;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +78,30 @@ public class dashboard extends AppCompatActivity
         setContentView(R.layout.activity_dashboard);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String value = extras.getString("key");
-            System.out.println("Value: " + value);
-            fragmentManager.beginTransaction().replace(R.id.contentFrame, new QRcode()).commit();
-            setResult(value);
-
-
-            //The key argument here must match that used in the other activity
-        }else {
+            System.out.println("KEY2 VALUE IS:   " + extras.get("key2"));
+            if (extras.getString("key2").equals("eventInfo")) {
+                System.out.println("EVENT ID:             :" + extras.getString("eventId"));
+                fragmentManager.beginTransaction().replace(R.id.contentFrame, new EventShowInfo()).commit();
+                Log.d("TAG EVENT INFO", extras.getString("key2"));
+            } else if (extras.getString("key2").equals("eventTicketing")) {
+                fragmentManager.beginTransaction().replace(R.id.contentFrame, new viewTicketList()).commit();
+            } else if (extras.getString("key2").equals("ticketSum")) {
+                //from viewTicketList
+                fragmentManager.beginTransaction().replace(R.id.contentFrame, new paymentSummary()).commit();
+            } else if (extras.getString("key2").equals("passToPayPal")) {
+                //from paymentSummary
+                fragmentManager.beginTransaction().replace(R.id.contentFrame, new PayPalFrag()  ).commit();
+            } else if (extras.getString("key2").equals("purchasedTix")) {
+                //from paymentSummary
+                fragmentManager.beginTransaction().replace(R.id.contentFrame, new purchasedTixList() ).commit();
+            } else {
+                //this key is inside confirmationActivity
+                String value = extras.getString("key");
+                System.out.println("Value of the QR code: " + value);
+                fragmentManager.beginTransaction().replace(R.id.contentFrame, new QRcode()).commit();
+                setResult(value);
+            }
+        } else {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeLayout()).commit();
             Toast.makeText(this, "HOME", Toast.LENGTH_LONG).show();
         }
@@ -93,8 +111,6 @@ public class dashboard extends AppCompatActivity
         backgroundPowerSaver = new BackgroundPowerSaver(this);
 
 
-
-
         //paypal
 
         Intent intent = new Intent(this, PayPalService.class);
@@ -102,7 +118,6 @@ public class dashboard extends AppCompatActivity
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
 
         startService(intent);
-
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -119,7 +134,7 @@ public class dashboard extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this,drawer,toolbar,  R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -151,16 +166,17 @@ public class dashboard extends AppCompatActivity
         }*/
 
         doDiscovery();
-        Log.d("TAG","Before dashboard task");
-        new viewAnEvent().execute();
-        Log.d("TAG","After dashboard task");
+        Log.d("TAG", "Before dashboard task");
+
+        Log.d("TAG", "After dashboard task");
 
     }
 
-    private void setResult(String value){
+    private void setResult(String value) {
         QRresult = value;
     }
-    public String getResult(){
+
+    public String getResult() {
         return QRresult;
     }
 
@@ -199,7 +215,7 @@ public class dashboard extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }else if(id == R.id.action_logout){
+        } else if (id == R.id.action_logout) {
             new doLogout().execute();
 
             Intent intent = new Intent(this, login.class);
@@ -240,20 +256,23 @@ public class dashboard extends AppCompatActivity
         } else if (id == R.id.inFlightOrderingFrag) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new inFlightOrderingFrag()).commit();
             Toast.makeText(this, "Going Into In Flight Ordering Menu", Toast.LENGTH_LONG).show();
-        }else if (id == R.id.home) {
+        } else if (id == R.id.home) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new homeLayout()).commit();
             Toast.makeText(this, "Back Home", Toast.LENGTH_LONG).show();
-        }else if (id == R.id.eventlisting) {
+        } else if (id == R.id.eventlisting) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new eventlisting()).commit();
             Toast.makeText(this, "Event Listing", Toast.LENGTH_LONG).show();
 
-        }else if (id == R.id.ticketing) {
+        } else if (id == R.id.ticketing) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new PayPalFrag()).commit();
             Toast.makeText(this, "Payment with PayPal", Toast.LENGTH_LONG).show();
 
-        }else if (id == R.id.payment) {
+        } else if (id == R.id.payment) {
             fragmentManager.beginTransaction().replace(R.id.contentFrame, new SupportWalletFragment()).commit();
             Toast.makeText(this, "Payment", Toast.LENGTH_LONG).show();
+        } else if (id == R.id.qr_scanner) {
+            fragmentManager.beginTransaction().replace(R.id.contentFrame, new QR_Scanner()).commit();
+            Toast.makeText(this, "Scan For Discount Using QR Scanner", Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -321,7 +340,6 @@ public class dashboard extends AppCompatActivity
     }*/
 
 
-
     //verify bluetooth is on
     private void verifyBluetooth() {
 
@@ -340,8 +358,7 @@ public class dashboard extends AppCompatActivity
                 });
                 builder.show();
             }
-        }
-        catch (RuntimeException e) {
+        } catch (RuntimeException e) {
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Bluetooth LE not available");
             builder.setMessage("Sorry, this device does not support Bluetooth LE.");
@@ -359,74 +376,7 @@ public class dashboard extends AppCompatActivity
 
         }
     }
-    private class viewAllEvents extends AsyncTask<Void, Void, String> {
 
-        protected String doInBackground(Void... params) {
-            Log.d("TAG", "DO IN BACKGROUND");
-            try {
-
-                HttpEntity<String> request2 = new HttpEntity<String>(ConnectionInformation.getInstance().getHeaders());
-                Log.d("TAGGGGGGGGREQUEST", ConnectionInformation.getInstance().getHeaders().getAccept().toString());
-                String url2 = "https://" + url + "/tixViewAllEvents";
-
-                Log.d("TAG", "BEFORE VERIFYING" + restTemplate.getMessageConverters().toString());
-                Log.d("TAG",request2.toString());
-                // Log.d("TAG",request2.getBody());
-                ResponseEntity<EventListObject[]> responseEntity = restTemplate.exchange(url2, HttpMethod.GET, request2, EventListObject[].class);
-
-                for ( EventListObject m : responseEntity.getBody()){
-                 Log.d("loopforeventlistobject", m.toString());
-                }
-
-            } catch (Exception e) {
-                Log.e("TAG", e.getMessage(), e);
-            }
-
-            return null;
-        }
-
-
-        protected void onPostExecute(String greeting) {
-            Log.d("TAG", "DO POST EXECUTE");
-        }
-
-    }
-
-    private class viewAnEvent extends AsyncTask<Void, Void, String> {
-
-        protected String doInBackground(Void... params) {
-            Log.d("TAG", "DO IN BACKGROUND");
-            try {
-                JSONObject request = new JSONObject();
-                //Event ID
-                request.put("eventId", 1);
-                HttpEntity<String> request2 = new HttpEntity<String>(request.toString(),ConnectionInformation.getInstance().getHeaders());
-                Log.d("TAGGGGGGGGREQUEST", ConnectionInformation.getInstance().getHeaders().getAccept().toString());
-                String url2 = "https://" + url + "/tixViewEvent";
-
-                Log.d("TAG", "BEFORE VERIFYING" + restTemplate.getMessageConverters().toString());
-                Log.d("TAG",request2.toString());
-                // Log.d("TAG",request2.getBody());
-                ResponseEntity<eventDetailsObject> responseEntity = restTemplate.exchange(url2, HttpMethod.POST, request2, eventDetailsObject.class);
-
-
-                Log.d("loopforeventlistobject", responseEntity.getBody().getTitle());
-                Log.d("loopforeventlistobject", responseEntity.getBody().getAddress().toString());
-
-
-            } catch (Exception e) {
-                Log.e("TAG", e.getMessage(), e);
-            }
-
-            return null;
-        }
-
-
-        protected void onPostExecute(String greeting) {
-            Log.d("TAG", "DO POST EXECUTE");
-        }
-
-    }
 
     Bundle result = null;
 
@@ -450,6 +400,7 @@ public class dashboard extends AppCompatActivity
         super.onDestroy();
     }
 
+
     private class doLogout extends AsyncTask<Void, Void, String> {
 
         protected String doInBackground(Void... params) {
@@ -458,12 +409,12 @@ public class dashboard extends AppCompatActivity
 
                 HttpEntity<String> request2 = new HttpEntity<String>(ConnectionInformation.getInstance().getHeaders());
                 String url2 = "https://" + url + "/logout";
-                Log.d("TAGTOSTRING ",request2.toString());
+                Log.d("TAGTOSTRING ", request2.toString());
                 ResponseEntity<Object> responseEntity = restTemplate.exchange(url2, HttpMethod.POST, request2, Object.class);
                 Log.d("TAGGGGGGGGREQUEST", responseEntity.getStatusCode().toString());
-                if ( responseEntity.getStatusCode().equals(HttpStatus.OK)){
+                if (responseEntity.getStatusCode().equals(HttpStatus.OK)) {
                     ConnectionInformation.getInstance().setIsAuthenticated(false);
-                    Log.d("TAG","Logged out inside async");
+                    Log.d("TAG", "Logged out inside async");
                 }
 
             } catch (Exception e) {
@@ -477,15 +428,13 @@ public class dashboard extends AppCompatActivity
         protected void onPostExecute(String greeting) {
 
             Log.d("TAG", "DO POST EXECUTE");
-            if ( ConnectionInformation.getInstance().getAuthenticated()){
+            if (ConnectionInformation.getInstance().getAuthenticated()) {
                 Log.d("TAG", "SERVER LOG OUT DID NOT WORK");
-            }
-            else{
+            } else {
                 Log.d("TAG", "LOG OUT ON SERVER OK");
             }
         }
 
     }
-
 
 }

@@ -86,7 +86,7 @@ public class login extends AppCompatActivity {
             //Set basic connection information
             ConnectionInformation.getInstance().setRestTemplate(restTemplate2);
             //SET ADDRESS OF THE SERVER
-            ConnectionInformation.getInstance().setUrl("192.168.0.102:8443");
+            ConnectionInformation.getInstance().setUrl("192.168.43.244:8443");
             restTemplate = restTemplate2;
         }
         catch ( Exception e){
@@ -96,9 +96,7 @@ public class login extends AppCompatActivity {
 
         setContentView(R.layout.login);
         ButterKnife.inject(this);
-
         Button mBtn1 = (Button) findViewById(R.id.goToNextPage);
-
 
         mBtn1.setOnClickListener(new View.OnClickListener() {
 

@@ -34,6 +34,9 @@
             android:id="@+id/third_frag"
             android:icon="@drawable/beacons"
             android:title="Beacon Ranging" />
-
+        <item
+            android:id="@+id/qr_scanner"
+            android:icon="@drawable/beacons"
+            android:title="SCAN FOR DISCOUNT USING QR CODE" />
     </group>
 </menu>

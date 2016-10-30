@@ -22,10 +22,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter Amount"
+            android:text="Amount Payable:"
             android:textAlignment="center" />
 
-        <EditText
+        <TextView
             android:id="@+id/editTextAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

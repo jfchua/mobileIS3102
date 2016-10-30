@@ -10,34 +10,36 @@ import android.os.Parcelable;
 
 public class Event implements Parcelable
 {
-    String code = null;
+    Long code; // represents id
     String name = null;
     String price = null;
     int index = 0;
     boolean selected = false;
 
-    public Event(String name, String price, boolean selected) {
+    public Event(){
         super();
+    }
 
+
+    public Event(String name, boolean selected) {
+        super();
+        this.code = code;
         this.name = name;
-        this.price = price;
         this.selected = selected;
        // this.index = index;
     }
 
     protected Event(Parcel in) {
-        code = in.readString();
+        code = in.readLong();
         name = in.readString();
-        price = in.readString();
         selected = in.readByte() != 0;
       //  index = in.readInt();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(code);
+        dest.writeLong(code);
         dest.writeString(name);
-        dest.writeString(price);
      //   dest.writeInt(index);
         dest.writeByte((byte) (selected ? 1 : 0));
     }
@@ -59,10 +61,10 @@ public class Event implements Parcelable
         }
     };
 
-    public String getCode() {
+    public Long getCode() {
         return code;
     }
-    public void setCode(String code) {
+    public void setCode(Long code) {
         this.code = code;
     }
     public String getName() {

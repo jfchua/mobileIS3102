@@ -28,7 +28,7 @@ public class QRcode extends Fragment implements View.OnClickListener {
 
     private String LOG_TAG = "GenerateQRCode";
     View myView;
-  TextView qrInput;
+    TextView qrInput;
 
     @Nullable
     @Override

@@ -18,7 +18,9 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import org.json.JSONObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
@@ -35,6 +37,8 @@ public class inFlightOrderingFrag extends Fragment {
     private String feedbackCategory;
     private String spin2;
     private String feedback;
+    private RestTemplate restTemplate = ConnectionInformation.getInstance().getRestTemplate();
+    private String url = ConnectionInformation.getInstance().getUrl();
 
     @Nullable
     @Override
@@ -74,9 +78,7 @@ public class inFlightOrderingFrag extends Fragment {
                 feedbackCategory = String.valueOf(spinner1.getSelectedItem());
 //                spin2 = String.valueOf(spinner2.getSelectedItem());
                 Toast.makeText(getActivity(),
-                        "Feedback Category: " +
-                                "\nSpinner 1 : "+ String.valueOf(spinner1.getSelectedItem())
-                        +"\nFeedback: " + feedbackBox.getText(),
+                        "Feedback Sent!",
                         Toast.LENGTH_SHORT).show();
 
                 new HttpRequestTask().execute();
@@ -94,26 +96,16 @@ public class inFlightOrderingFrag extends Fragment {
             try {
                 //POST
                 JSONObject requestJ = new JSONObject();
-                feedback = feedbackCategory + " : " + feedback;
-                requestJ.put("drink", spin2);
+                requestJ.put("category", feedbackCategory);
                 requestJ.put("feedback", feedback);
                 Log.d("TAG",requestJ.toString());
-                HttpHeaders headers = new HttpHeaders();
-                headers.setContentType(MediaType.APPLICATION_JSON);
-                RestTemplate restTemplate = new RestTemplate();
-                MappingJackson2HttpMessageConverter jsonHttpMessageConverter = new MappingJackson2HttpMessageConverter();
-                jsonHttpMessageConverter.getObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-
-                HttpEntity<String> request = new HttpEntity<String>(
-                        requestJ.toString(), headers);
-                String url = "http://192.168.43.153/SIAPOSTFOOD.php";
-                restTemplate.getMessageConverters().add(jsonHttpMessageConverter);
-                restTemplate.getMessageConverters().add(new FormHttpMessageConverter());
-                restTemplate.getMessageConverters().add(jsonHttpMessageConverter);
+                HttpEntity<String> request2 = new HttpEntity<String>(requestJ.toString(),ConnectionInformation.getInstance().getHeaders());
+                Log.d("TAGGGGGGGGREQUEST", ConnectionInformation.getInstance().getHeaders().getAccept().toString());
+                String url2 = "https://" + url + "/tixFeedback";
                 Log.d("TAG","BEFORE POSTING");
-                String response = restTemplate
-                        .postForObject(url, request, String.class);
-                Log.d("TAGGGGGGGG",response.toString());
+                ResponseEntity<String> responseEntity = restTemplate.exchange(url2, HttpMethod.POST, request2, String.class);
+
+                Log.d("TAGGGGGGGG",responseEntity.toString());
 
             } catch (Exception e) {
                 Log.e("TAG", e.getMessage(), e);
@@ -128,8 +120,6 @@ public class inFlightOrderingFrag extends Fragment {
         }
 
     }
-
-
 
 
 }

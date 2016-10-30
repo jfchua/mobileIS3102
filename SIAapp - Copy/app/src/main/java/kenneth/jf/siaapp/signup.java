@@ -116,7 +116,7 @@ public class signup extends AppCompatActivity {
     }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Signup failed. " + exceptionMessage.substring(1,exceptionMessage.length()-1) , Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Signup failed. " , Toast.LENGTH_LONG).show();
 
         _signupButton.setEnabled(true);
     }

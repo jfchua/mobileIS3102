@@ -3,8 +3,10 @@ package kenneth.jf.siaapp;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -20,11 +22,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.paypal.android.sdk.fw.v;
+import static kenneth.jf.siaapp.R.layout.event;
 
 /**
  * Created by User on 16/10/2016.
@@ -32,154 +40,103 @@ import static com.paypal.android.sdk.fw.v;
 
 public class eventlisting extends Fragment {
     View myView;
+    boolean test = true;
+    ArrayList<Event> list = new ArrayList<>();
+    private RestTemplate restTemplate = ConnectionInformation.getInstance().getRestTemplate();
+    private String url = ConnectionInformation.getInstance().getUrl();
     ArrayList<Event> EventList = new ArrayList<Event>();
     ArrayList<Event> EventList2 = new ArrayList<Event>();
-    ArrayList<Event> EventList3 = new ArrayList<Event>();
+
     FragmentManager fragmentManager = getFragmentManager();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.event,container,false);
-        displayListView();
-        checkButtonClick();
+
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity(), R.style.AppTheme);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Retrieving the Events...");
+        progressDialog.show();
+        new viewAllEvents().execute();
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        // On complete call either onLoginSuccess or onLoginFailed
+                        if ( ConnectionInformation.getInstance().getAuthenticated() ){
+                            Log.d("TAG","After authenticated");
+                            displayListView();
+                            checkButtonClick();
+                        }
+                        else{
+                            Log.d("TAG","After NOT authenticated");
+
+                        }
+                        // onLoginFailed();
+                        progressDialog.dismiss();
+                    }
+                }, 5000);
+        myView = inflater.inflate(event,container,false);
 
 
-        Button removeBtn = (Button) myView.findViewById(R.id.ButtonRemoveFromCart);
 
-        removeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String str=new String();
-                for(int i=0;i<EventList2.size();i++) {
-                    str=str.concat(EventList2.get(i).getName());
-
-                }
-                Toast.makeText(getActivity(), "EVENT LISTING 2: " + str, Toast.LENGTH_SHORT).show();
-                dataAdapter = new MyCustomAdapter(getActivity(), R.layout.event_info, EventList2);
-                ListView listView = (ListView) myView.findViewById(R.id.listView1);
-                // Assign adapter to ListView
-                listView.setAdapter(dataAdapter);
-
-            }
-        });
-
-        Button proceedToCheckOut = (Button) myView.findViewById(R.id.proceedToCheckOut);
-        proceedToCheckOut.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getActivity(), dashboard.class);
-                // intent.putParcelableArrayListExtra();
-
-
-            }
-        });
 
         return myView;
     }
 
     MyCustomAdapter dataAdapter = null;
 
-    /*private ActionBar actionBar;
-    private String[] tabs = { "Tab1", "Tab2" };
-    String[] values = new String[] { "Android List View",
-            "Adapter implementation",
-            "Simple List View In Android",
-            "Create List View Android",
-            "Android Example",
-            "List View Source Code",
-            "List View Array Adapter",
-            "Android Example List View"
-    };
-    List<String> eventList = Arrays.asList(values);
-    ArrayAdapter<String> mArrayAdapter;
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onActivityCreated(savedInstanceState);
-
-        ListView mListView = (ListView) getActivity().findViewById(R.id.databaselist);
-
-        mArrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, values);
-
-        mListView.setAdapter(mArrayAdapter);
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long arg3) {
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.contentFrame, new eventlistingpopup()).commit();
-                String index = (String) adapterView.getItemAtPosition(position);
+    private class viewAllEvents extends AsyncTask<Void, Void, String> {
 
 
-                String userContent = (String) adapterView.getItemAtPosition(position);
-                int size = adapterView.getCount();
+        protected String doInBackground(Void... params) {
+            Log.d("TAG", "DO IN BACKGROUND");
+            try {
 
-                Bundle bundle = new Bundle();
-                bundle.putString("value", userContent); //any string to be sent
-                dashboard activity = (dashboard) getActivity();
-                activity.saveData(1, bundle);
+                HttpEntity<String> request2 = new HttpEntity<String>(ConnectionInformation.getInstance().getHeaders());
+                Log.d("TAGGGGGGGGREQUEST", ConnectionInformation.getInstance().getHeaders().getAccept().toString());
+                String url2 = "https://" + url + "/tixViewAllEvents";
+
+                Log.d("TAG", "BEFORE VERIFYING" + restTemplate.getMessageConverters().toString());
+                Log.d("TAG",request2.toString());
+                // Log.d("TAG",request2.getBody());
+                ResponseEntity<EventListObject[]> responseEntity = restTemplate.exchange(url2, HttpMethod.GET, request2, EventListObject[].class);
+
+                for ( EventListObject m : responseEntity.getBody()){
+                    Event e = new Event();
+                    e.setName(m.getEventName());
+                    e.setCode(m.getId());
+                    e.setSelected(false);
+                    EventList.add(e);
+                    //return list
+                    Log.d("loopforeventlistobject", m.toString());
+                }
 
 
-                Toast.makeText(getActivity(), "HELLO, THE POSITION : " + position + " IS SELECTED...", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Log.e("TAG", e.getMessage(), e);
             }
-        });
-    }*/
 
+            return null;
+        }
 
-    public void addStaticEvents(){
-        Event Event = new Event("Jay Chou Concert","$111.00",false);
-        EventList.add(Event);
-        Event = new Event("Comex IT Fair","$11.00",false);
-        EventList.add(Event);
-        Event = new Event("Meet and Greet","$23.30",false);
-        EventList.add(Event);
-        Event = new Event("Great Singapore Sale","$132.10",false);
-        EventList.add(Event);
-        Event = new Event("DBS Annual Meeting","$123.45",false);
-        EventList.add(Event);
-        Event = new Event("JJ LIN Concert","$123.00",false);
-        EventList.add(Event);
-        Event = new Event("Job Fair","$11.00",false);
-        EventList.add(Event);
-    }
-    public void addStaticEvents2(){
-        Event Event = new Event("Jay Chou Concert","$111.00",false);
-        EventList2.add(Event);
-        Event = new Event("Comex IT Fair","$11.00",false);
-        EventList2.add(Event);
-        Event = new Event("Meet and Greet","$23.30",false);
-        EventList2.add(Event);
-        Event = new Event("Great Singapore Sale","$132.10",false);
-        EventList2.add(Event);
-        Event = new Event("DBS Annual Meeting","$123.45",false);
-        EventList2.add(Event);
-        Event = new Event("JJ LIN Concert","$123.00",false);
-        EventList2.add(Event);
-        Event = new Event("Job Fair","$11.00",false);
-        EventList2.add(Event);
-    }
-    
-    public void remove(int i){
-        EventList2.remove(i);
+        protected void onPostExecute(String greeting) {
+
+            Log.d("TAG", "DO POST EXECUTE");
+            Log.d("EVENT: " , String.valueOf(EventList.size()));
+            test = false;
+        }
     }
 
     //EVENT LISTING
     private void displayListView() {
-
         //Array list of events
-        addStaticEvents();
-        addStaticEvents2();
-
 
         //create an ArrayAdaptar from the String Array
+        // EventList = list;
+        System.out.println("Size: " + EventList.size());
         dataAdapter = new MyCustomAdapter(this.getActivity(), R.layout.event_info, EventList);
         ListView listView = (ListView) myView.findViewById(R.id.listView1);
         // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
@@ -189,8 +146,6 @@ public class eventlisting extends Fragment {
                 Toast.makeText(getActivity(),
                         "Clicked on Row: " + event.getName(),
                         Toast.LENGTH_LONG).show();
-
-
             }
         });
 
@@ -203,16 +158,19 @@ public class eventlisting extends Fragment {
         public MyCustomAdapter(Context context, int textViewResourceId,
                                ArrayList<Event> EventList) {
             super(context, textViewResourceId, EventList);
-            this.EventList = new ArrayList<Event>();
+            this.EventList = new ArrayList<>();
             this.EventList.addAll(EventList);
         }
 
         private class ViewHolder {
             TextView code;
             CheckBox name;
-            Button button;
+            Button eventInfo;
+            Button ticketList;
         }
 
+
+        //suppose to populate the arraylist with eventlistobject
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
 
@@ -226,7 +184,8 @@ public class eventlisting extends Fragment {
                 holder = new ViewHolder();
                 holder.code = (TextView) convertView.findViewById(R.id.code);
                 holder.name = (CheckBox) convertView.findViewById(R.id.checkBox1);
-                holder.button = (Button) convertView.findViewById(R.id.viewEventInfo);
+                holder.eventInfo = (Button) convertView.findViewById(R.id.viewEventInfo);
+                holder.ticketList = (Button)convertView.findViewById(R.id.toTicketList);
                 convertView.setTag(holder);
 
                 holder.name.setOnClickListener( new View.OnClickListener() {
@@ -238,26 +197,12 @@ public class eventlisting extends Fragment {
                                         " is " + cb.isChecked(),
                                 Toast.LENGTH_LONG).show();
                         Event.setSelected(cb.isChecked());
-                        EventList2.remove(position);
-                        Toast.makeText(getActivity(), "Position: " + position, Toast.LENGTH_LONG);
+
                         //retrieve Event Details From Backend
 
                     }
                 });
-                holder.button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Button cb = (Button) view ;
-                        Event event = (Event)cb.getTag();
-                        int position = getPosition(event);
-                        //send details using bundle to the next fragment
-                        Intent intent = new Intent(getActivity(),  dashboard.class);
-                        intent.putExtra("key2", "eventPayment");
-                        startActivity(intent);
 
-
-                    }
-                });
 
             }
             else {
@@ -265,11 +210,40 @@ public class eventlisting extends Fragment {
             }
 
             Event Event = EventList.get(position);
-            holder.code.setText(" (" +  Event.getPrice() + ")");
             holder.name.setText(Event.getName());
             holder.name.setChecked(Event.isSelected());
             holder.name.setTag(Event);
+            holder.eventInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Button cb = (Button) view ;
+                    Event event = (Event)cb.getTag();
+                    int pos = position +1;
+                    //send details using bundle to the next fragment
+                    Intent intent = new Intent(getActivity(),  dashboard.class);
+                    intent.putExtra("key2", "eventInfo");
+                    intent.putExtra("eventId", pos);
+                    startActivity(intent);
 
+
+                }
+            });
+            holder.ticketList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Button cb = (Button) view ;
+                    Event event = (Event)cb.getTag();
+                    int pos = position +1;
+                    //send details using bundle to the next fragment
+                    Intent intent = new Intent(getActivity(),  dashboard.class);
+                    intent.putExtra("key2", "eventTicketing");
+                    intent.putExtra("eventId", String.valueOf(pos));
+                    System.out.println("FROM POSITION in eventListing: " + pos);
+                    startActivity(intent);
+
+
+                }
+            });
             return convertView;
 
         }
@@ -282,7 +256,7 @@ public class eventlisting extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Log.v("Indexremoved: ", "fkkkk");
+                Log.v("Index removed: ", "fkkkk");
                 StringBuffer responseText = new StringBuffer();
                 responseText.append("The following were selected...\n");
                 //this list shows the events that are selected
@@ -299,7 +273,6 @@ public class eventlisting extends Fragment {
 
             }
         });
-
 
     }
 }

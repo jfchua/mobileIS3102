@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
@@ -37,7 +38,7 @@ public class PayPalFrag extends Fragment implements View.OnClickListener{
     //values
     //The views
     private Button buttonPay;
-    private EditText editTextAmount;
+    private TextView editTextAmount; //amount to pay
 
     //Payment Amount
     private String paymentAmount;
@@ -48,8 +49,9 @@ public class PayPalFrag extends Fragment implements View.OnClickListener{
 
         myView = inflater.inflate(R.layout.payment_form,container,false);
         buttonPay = (Button) myView.findViewById(R.id.buttonPay);
-        editTextAmount = (EditText) myView.findViewById(R.id.editTextAmount);
-
+        editTextAmount = (TextView) myView.findViewById(R.id.editTextAmount);
+        String value = getActivity().getIntent().getStringExtra("payPalSum");
+        editTextAmount.setText(value);
         buttonPay.setOnClickListener(this);
         return myView;
     }

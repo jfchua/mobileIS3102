@@ -20,15 +20,20 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/checkBox1"
         android:layout_alignBottom="@+id/checkBox1"
-        android:layout_toRightOf="@+id/checkBox1"
-        android:text="TextView" />
+        android:layout_toRightOf="@+id/checkBox1" />
     <Button
         android:id="@+id/viewEventInfo"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@+id/toTicketList"
         android:text="More Info">
 
     </Button>
+    <Button
+        android:id="@+id/toTicketList"
+        android:text="Buy Tickets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>
