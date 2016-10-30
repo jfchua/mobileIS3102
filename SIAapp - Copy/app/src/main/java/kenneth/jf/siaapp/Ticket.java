@@ -1,5 +1,6 @@
 package kenneth.jf.siaapp;
 
+<<<<<<< HEAD
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -85,4 +86,22 @@ public class Ticket implements Parcelable
     public void setPrice(double price) {
         this.price = price;
     }
+=======
+import java.util.Date;
+
+/**
+ * Created by User on 25/10/2016.
+ */
+
+public class Ticket {
+
+    String id = null;
+    String uuid = null;
+    String paymentId = null;
+    Date startDate = null;
+    Date endDate = null;
+    Date purchaseDate = null;
+    Category cat = null;
+
+>>>>>>> origin/master
 }

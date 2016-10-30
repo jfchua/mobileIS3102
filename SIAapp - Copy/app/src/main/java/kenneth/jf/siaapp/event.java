@@ -4,18 +4,23 @@ import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by User on 16/10/2016.
- */
+import java.util.Date;
+import java.util.Set;
 
 public class Event implements Parcelable
 {
+<<<<<<< HEAD
     Long code; // represents id
     String name = null;
+=======
+    String code = null; //id
+    String name = null;//title
+>>>>>>> origin/master
     String price = null;
     int index = 0;
     boolean selected = false;
 
+<<<<<<< HEAD
     public Event(){
         super();
     }
@@ -24,6 +29,23 @@ public class Event implements Parcelable
     public Event(String name, boolean selected) {
         super();
         this.code = code;
+=======
+
+    String eventDesc = null;
+    String approvalStatus = null;
+    Date startDate = null;
+    Date endDate = null;
+    String filePath = null; // what is this for?
+    boolean hasTicket = false;
+    String paymentStatus = null;
+    String paymentPlan = null;//?
+    Set<Category> cat = null;
+
+
+
+    public Event(String name, String price, boolean selected) {
+        super();
+>>>>>>> origin/master
         this.name = name;
         this.selected = selected;
        // this.index = index;

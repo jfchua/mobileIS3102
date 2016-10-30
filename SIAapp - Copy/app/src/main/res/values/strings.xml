@@ -14,8 +14,9 @@
     <string name="permission_failure">FAILED FOR PERMISSION</string>
 
 
-    <string name="food_prompt">Choose Your Food!</string>
-    <string name="drink_prompt">Choose Your Drinks!</string>
+    <string name="category_prompt">Choose Your Category!</string>
+    <string name="number_prompt">No Of Tickets</string>
+
     <string name="category">Choose your category type!</string>
     <string-array name="food_arrays">
         <item>Pasta</item>
@@ -46,6 +47,29 @@
 
     </string-array>
 
+
+
+    <!--category-->
+    <string-array name="category_arrays">
+        <item>Adult</item>
+        <item>Child</item>
+        <item>Senior Citizen</item>
+        <item>Handicapped</item>
+    </string-array>
+
+    <!--number-->
+    <string-array name="number_arrays">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
 
 
     <!--Events-->

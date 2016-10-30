@@ -5,8 +5,13 @@
     android:orientation="vertical"
     android:padding="6dip" >
 
+<<<<<<< HEAD
     <CheckBox
         android:id="@+id/checkBox1"
+=======
+    <Spinner
+        android:id="@+id/spinnerTicket"
+>>>>>>> origin/master
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -15,6 +20,7 @@
         android:text="CheckBox" />
 
     <TextView
+<<<<<<< HEAD
         android:id="@+id/code2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,5 +36,22 @@
         android:layout_alignParentRight="true">
 
     </Spinner>
+=======
+        android:id="@+id/code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/spinnerTicket"
+        android:layout_alignBottom="@+id/spinnerTicket"
+        android:layout_toRightOf="@+id/spinnerTicket"
+        android:text="TextView" />
+    <Button
+        android:id="@+id/viewEventInfo"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="More Info">
+
+    </Button>
+>>>>>>> origin/master
 
 </RelativeLayout>

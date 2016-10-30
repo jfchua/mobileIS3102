@@ -24,6 +24,10 @@ import android.widget.Toast;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+<<<<<<< HEAD
+=======
+import org.springframework.http.HttpStatus;
+>>>>>>> origin/master
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -40,10 +44,14 @@ import static kenneth.jf.siaapp.R.layout.event;
 
 public class eventlisting extends Fragment {
     View myView;
+<<<<<<< HEAD
     boolean test = true;
     ArrayList<Event> list = new ArrayList<>();
     private RestTemplate restTemplate = ConnectionInformation.getInstance().getRestTemplate();
     private String url = ConnectionInformation.getInstance().getUrl();
+=======
+    boolean removeEvent = true;
+>>>>>>> origin/master
     ArrayList<Event> EventList = new ArrayList<Event>();
     ArrayList<Event> EventList2 = new ArrayList<Event>();
 
@@ -51,6 +59,33 @@ public class eventlisting extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+<<<<<<< HEAD
+=======
+        myView = inflater.inflate(R.layout.event,container,false);
+        displayListView();
+        checkButtonClick();
+
+
+        Button removeBtn = (Button) myView.findViewById(R.id.ButtonRemoveFromCart);
+
+        removeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                for(int i=0;i<EventList.size();i++) {
+                    if(EventList.get(i).isSelected()){
+                        EventList.remove(i);
+                    }
+                }
+
+                dataAdapter = new MyCustomAdapter(getActivity(), R.layout.event_info, EventList);
+                ListView listView = (ListView) myView.findViewById(R.id.listView1);
+                // Assign adapter to ListView
+                listView.setAdapter(dataAdapter);
+
+            }
+        });
+>>>>>>> origin/master
 
         final ProgressDialog progressDialog = new ProgressDialog(getActivity(), R.style.AppTheme);
         progressDialog.setIndeterminate(true);
@@ -76,7 +111,28 @@ public class eventlisting extends Fragment {
                 }, 5000);
         myView = inflater.inflate(event,container,false);
 
+<<<<<<< HEAD
 
+=======
+            @Override
+            public void onClick(View v) {
+                int count=0;
+                double price = 0.00;
+                for(int i=0;i<EventList.size();i++){
+                    if(EventList.get(i).isSelected())
+                        count+=1;
+                }
+                if (count == 0){
+                    Toast.makeText(getActivity(), "NO EVENTS SELECTED!!!!!!!!!!", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    for(int i=0;i<EventList.size();i++){
+                        price += Double.valueOf(EventList.get(i).getPrice());
+                    }
+                }
+                Intent intent = new Intent(getActivity(), dashboard.class);
+                // intent.putParcelableArrayListExtra();
+>>>>>>> origin/master
 
 
         return myView;
@@ -120,15 +176,66 @@ public class eventlisting extends Fragment {
 
         protected void onPostExecute(String greeting) {
 
+<<<<<<< HEAD
             Log.d("TAG", "DO POST EXECUTE");
             Log.d("EVENT: " , String.valueOf(EventList.size()));
             test = false;
         }
+=======
+                Toast.makeText(getActivity(), "HELLO, THE POSITION : " + position + " IS SELECTED...", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }*/
+
+
+    public void addStaticEvents(){
+        Event Event = new Event("Jay Chou Concert","$111.00",false);
+        EventList.add(Event);
+        Event = new Event("Comex IT Fair","$11.00",false);
+        EventList.add(Event);
+        Event = new Event("Meet and Greet","$23.30",false);
+        EventList.add(Event);
+        Event = new Event("Great Singapore Sale","$132.10",false);
+        EventList.add(Event);
+        Event = new Event("DBS Annual Meeting","$123.45",false);
+        EventList.add(Event);
+        Event = new Event("JJ LIN Concert","$123.00",false);
+        EventList.add(Event);
+        Event = new Event("Job Fair","$11.00",false);
+        EventList.add(Event);
+    }
+    public void addStaticEvents2(){
+        Event Event = new Event("Jay Chou Concert","$111.00",false);
+        EventList2.add(Event);
+        Event = new Event("Comex IT Fair","$11.00",false);
+        EventList2.add(Event);
+        Event = new Event("Meet and Greet","$23.30",false);
+        EventList2.add(Event);
+        Event = new Event("Great Singapore Sale","$132.10",false);
+        EventList2.add(Event);
+        Event = new Event("DBS Annual Meeting","$123.45",false);
+        EventList2.add(Event);
+        Event = new Event("JJ LIN Concert","$123.00",false);
+        EventList2.add(Event);
+        Event = new Event("Job Fair","$11.00",false);
+        EventList2.add(Event);
+    }
+
+    public void remove(int i){
+        EventList2.remove(i);
+>>>>>>> origin/master
     }
 
     //EVENT LISTING
     private void displayListView() {
         //Array list of events
+<<<<<<< HEAD
+=======
+        addStaticEvents();
+        addStaticEvents2();
+        new getEvent().execute();
+
+>>>>>>> origin/master
 
         //create an ArrayAdaptar from the String Array
         // EventList = list;
@@ -198,10 +305,29 @@ public class eventlisting extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         Event.setSelected(cb.isChecked());
 
+<<<<<<< HEAD
+=======
+                      //  EventList2.remove(position);
+                        Toast.makeText(getActivity(), "Position: " + position, Toast.LENGTH_LONG);
+>>>>>>> origin/master
                         //retrieve Event Details From Backend
 
                     }
                 });
+<<<<<<< HEAD
+=======
+                holder.button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Button cb = (Button) view ;
+                        Event event = (Event)cb.getTag();
+                        int position = getPosition(event);
+                        //send details using bundle to the next fragment
+                        Intent intent = new Intent(getActivity(),  dashboard.class);
+                        intent.putExtra("key2", "eventInfo");
+                        startActivity(intent);
+
+>>>>>>> origin/master
 
 
             }
@@ -256,7 +382,11 @@ public class eventlisting extends Fragment {
 
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 Log.v("Index removed: ", "fkkkk");
+=======
+
+>>>>>>> origin/master
                 StringBuffer responseText = new StringBuffer();
                 responseText.append("The following were selected...\n");
                 //this list shows the events that are selected
@@ -274,5 +404,48 @@ public class eventlisting extends Fragment {
             }
         });
 
+<<<<<<< HEAD
+=======
+    }
+
+    private String url = ConnectionInformation.getInstance().getUrl();
+    private RestTemplate restTemplate = ConnectionInformation.getInstance().getRestTemplate();
+
+    private class getEvent extends AsyncTask<Void, Void, String> {
+
+        protected String doInBackground(Void... params) {
+            Log.d("TAG", "DO IN BACKGROUND");
+            try {
+
+                HttpEntity<String> request2 = new HttpEntity<String>(ConnectionInformation.getInstance().getHeaders());
+                String url2 = "https://" + url + "/tixViewAllEvents";
+                Log.d("TAG TO STRING ",request2.toString());
+                ResponseEntity<Event[]> responseEntity = restTemplate.exchange(url2, HttpMethod.POST, request2, Event[].class);
+                Log.d("EVENT REQUEST", responseEntity.getStatusCode().toString());
+                if ( responseEntity.getStatusCode().equals(HttpStatus.OK)){
+                    ConnectionInformation.getInstance().setIsAuthenticated(false);
+                    Log.d("TAG","Get Events inside async");
+                }
+
+            } catch (Exception e) {
+                Log.e("TAG", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+
+        protected void onPostExecute(String greeting) {
+
+            Log.d("TAG", "DO POST EXECUTE");
+            if ( ConnectionInformation.getInstance().getAuthenticated()){
+                Log.d("TAG", "SERVER LOG OUT DID NOT WORK");
+            }
+            else{
+                Log.d("TAG", "LOG OUT ON SERVER OK");
+            }
+        }
+
+>>>>>>> origin/master
     }
 }
